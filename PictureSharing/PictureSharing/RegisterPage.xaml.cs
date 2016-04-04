@@ -43,5 +43,10 @@ namespace PictureSharing
                 await dialog.ShowAsync();
             }
         }
+
+        private void bk_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LogInPage));
+        }
     }
 }

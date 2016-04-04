@@ -98,6 +98,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Authentication\Account.cs" />
+    <Compile Include="Authentication\User.cs" />
     <Compile Include="FotoPage.xaml.cs">
       <DependentUpon>FotoPage.xaml</DependentUpon>
     </Compile>

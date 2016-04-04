@@ -32,8 +32,8 @@
         <TextBox x:Name="textBox" TextWrapping="Wrap" TextAlignment="Center" Text="" RenderTransformOrigin="-0.493,0.844" Grid.Row="3" Grid.Column="1" Foreground="#FFF23E2D" Margin="0,0.333,0,30.333" Grid.RowSpan="2"/>
         <PasswordBox x:Name="passwordBox" Grid.Column="1" Grid.Row="5" Margin="0,0.667,0,38.333" Foreground="#FFF23E2D" Grid.RowSpan="2"/>
         <Image x:Name="image" Grid.Column="1" Source="Assets/Schermafbeelding 2016-04-04 om 12.31.14.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1,8,1,8.667"/>
-        <Button x:Name="forgotPassword" Content="forgot password?" Click="loginbtn_Click" Grid.Row="7" Grid.Column="1" Foreground="White" Background="#FFF4571F" HorizontalAlignment="Center" Margin="17,2.667,16,3.333"/>
-        <Button x:Name="loginbtn_Copy1" Content="create account" Click="loginbtn_Click" Grid.Row="8" Grid.Column="1" Foreground="White" Background="#FFF4571F" HorizontalAlignment="Center"/>
+        <Button x:Name="forgotPassword" Content="forgot password?" Click="forgotPassword_Click" Grid.Row="7" Grid.Column="1" Foreground="White" Background="#FFF4571F" HorizontalAlignment="Center" Margin="17,2.667,16,3.333"/>
+        <Button x:Name="createAccount_btn" Content="create account" Click="createAccount_Click" Grid.Row="8" Grid.Column="1" Foreground="White" Background="#FFF4571F" HorizontalAlignment="Center"/>
 
     </Grid>
 </Page>

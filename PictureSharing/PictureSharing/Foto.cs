@@ -12,5 +12,13 @@ namespace PictureSharing
         private string fotoNaam;
         private long gebruikersID;
         private string path;
+
+        public Foto(long fotoID, string fotoNaam, long gebruikersID, string path)
+        {
+            this.fotoID = fotoID;
+            this.fotoNaam = fotoNaam;
+            this.gebruikersID = gebruikersID;
+            this.path = path;
+        }
     }
 }

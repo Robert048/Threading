@@ -8,6 +8,13 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox x:Name="usernametxt" HorizontalAlignment="Left" Margin="69,218,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="22" Width="190"/>
+        <PasswordBox x:Name="passwordtxt" HorizontalAlignment="Left" Margin="69,299,0,0" VerticalAlignment="Top" Height="29" Width="190"/>
+        <Button x:Name="registerbtn" Content="Register" HorizontalAlignment="Left" Margin="69,446,0,0" VerticalAlignment="Top" Click="registerbtn_Click"/>
+        <TextBox x:Name="emailtxt" HorizontalAlignment="Left" Margin="69,365,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="35" Width="190"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="69,190,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" Height="23"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="69,265,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="69,340,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

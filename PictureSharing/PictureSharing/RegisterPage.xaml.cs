@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -25,6 +26,22 @@ namespace PictureSharing
         public RegisterPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void registerbtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Authentication.Account register = new Authentication.Account();
+                register.registerAccount(usernametxt.Text, passwordtxt.Password,emailtxt.Text);
+                var dialog = new MessageDialog("User: " + usernametxt.Text + " successfully created" );
+                await dialog.ShowAsync();
+            }
+            catch
+            {
+                var dialog = new MessageDialog("Fail");
+                await dialog.ShowAsync();
+            }
         }
     }
 }

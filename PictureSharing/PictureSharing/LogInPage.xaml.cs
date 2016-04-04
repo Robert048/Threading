@@ -26,5 +26,11 @@ namespace PictureSharing
         {
             this.InitializeComponent();
         }
+
+        private void loginbtn_Click(object sender, RoutedEventArgs e)
+        {
+            Authentication.Account account = new Authentication.Account();
+            account.loginAccount("harry", "test");
+        }
     }
 }

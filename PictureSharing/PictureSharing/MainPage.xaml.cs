@@ -27,7 +27,6 @@ namespace PictureSharing
             {
                 fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
             }
-            fotolijst.Add(new Foto() {fotoNaam = "naam"});
             control.ItemsSource = fotolijst;
         }
 

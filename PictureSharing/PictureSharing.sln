@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PictureSharing", "PictureSharing\PictureSharing.csproj", "{48AB059F-C49E-42B2-A1B8-1EB41BF7DC0D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8A4974D9-3D39-4A70-BFCB-12733992AE8A} = {8A4974D9-3D39-4A70-BFCB-12733992AE8A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadingServices", "ThreadingServices\ThreadingServices.csproj", "{8A4974D9-3D39-4A70-BFCB-12733992AE8A}"
 EndProject

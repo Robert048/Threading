@@ -22,11 +22,12 @@ namespace PictureSharing
         private async void getFotos()
         {
             var tempList = await client.GetAllFotosAsync();
+            fotolijst = new List<Foto>();
             foreach (var item in tempList)
             {
                 fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
             }
-            fotolijst.Add(new Foto() { fotoID = 1, fotoNaam = "naam", gebruikersID = 1, path = "f" });
+            fotolijst.Add(new Foto() {fotoNaam = "naam"});
             control.ItemsSource = fotolijst;
         }
 

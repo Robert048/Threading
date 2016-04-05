@@ -45,8 +45,8 @@
                 <DataTemplate>
                     <Grid Height="128" Width="128" Tapped="templateClick">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="7*"/>
-                            <RowDefinition Height="57*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="60*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Tapped="templateClick" TextWrapping="Wrap" Text="{Binding fotoNaam}"/>
                         <Image Tapped="templateClick" Source="{Binding path}" MaxWidth="128" MaxHeight="128" Grid.Row="1"/>

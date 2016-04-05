@@ -275,5 +275,10 @@ namespace ThreadingServices
                     ent.Fotoes.Remove(removeFoto);
                 }
             }
-        }
+
+		public void UploadFoto(string filename, Stream stream)
+		{
+			throw new NotImplementedException();
+		}
+	}
     }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,6 +27,14 @@ namespace PictureSharing
         public FotoPage()
         {
             this.InitializeComponent();
+
+            // TEMP
+            Foto temp = new Foto() {
+                fotoNaam = "Deze moet vervangen worden!",
+                path = "http://bartvanas.nl/_Media/_mg_1102.jpeg"
+            };
+
+            this.DataContext = temp;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -38,27 +47,34 @@ namespace PictureSharing
             {
                 // Invalid Argument, return to MainPage?
                 ShowDialog();
+                //Frame.Navigate(typeof(MainPage));
             }
-            base.OnNavigatedTo(e);
-        }
 
-        private void PreviousHistory()
-        {
-            if (this.Frame.CanGoBack)
+            if (Frame.CanGoBack)
             {
-                this.Frame.GoBack();
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
             }
+
         }
 
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            PreviousHistory();
-        }
+        //private void PreviousHistory()
+        //{
+        //    if (this.Frame.CanGoBack)
+        //    {
+        //        this.Frame.GoBack();
+        //    }
+        //}
+
+        //private void btnBack_Click(object sender, RoutedEventArgs e)
+        //{
+        //    PreviousHistory();
+        //}
 
         private async void ShowDialog()
         {
             var dialog = new MessageDialog("Afbeelding niet gevonden. Keer terug naar overzicht.");
             await dialog.ShowAsync();
         }
+
     }
 }

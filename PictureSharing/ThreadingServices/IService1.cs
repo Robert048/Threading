@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -37,7 +38,7 @@ namespace ThreadingServices
 
         // TODO: Uitzoeken en uitbreiden
         [OperationContract]
-        void UploadFoto();
+        void UploadFoto(string filename, Stream stream);
         // ---------------------------
 
         [OperationContract]

@@ -26,7 +26,23 @@ namespace PictureSharing
             {
                 fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
             }
+            fotolijst.Add(new Foto() { fotoID = 1, fotoNaam = "naam", gebruikersID = 1, path = "f" });
             control.ItemsSource = fotolijst;
+        }
+
+        private void btnSettings_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingsPage));
+        }
+
+        private void btnRefresh_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            getFotos();
+        }
+
+        private void templateClick(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(SettingsPage));
         }
     }
 }

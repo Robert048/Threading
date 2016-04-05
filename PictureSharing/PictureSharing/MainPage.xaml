@@ -14,7 +14,7 @@
                     <VisualState.Setters>
                         <Setter Target="btnSettings.(Control.Foreground).(SolidColorBrush.Color)">
                             <Setter.Value>
-                                <Color>Black</Color>
+                                <Color>White</Color>
                             </Setter.Value>
                         </Setter>
                     </VisualState.Setters>
@@ -37,16 +37,16 @@
             <RowDefinition Height="83*"/>
             <RowDefinition Height="914*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnSettings" Content="Settings" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnSettings_Click"/>
-        <Button x:Name="btnRefresh" Content="Refresh" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnRefresh_Click"/>
-        <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Fotoviewer" TextAlignment="Center" Margin="0,32,0,31" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <Button x:Name="btnSettings" Content="Settings" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnSettings_Click" Background="#FFF4571F"/>
+        <Button x:Name="btnRefresh" Content="Refresh" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnRefresh_Click" Background="#FFF4571F" Foreground="White"/>
+        <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Fotoviewer" TextAlignment="Center" Margin="0" Foreground="#FFEDBC7D" FontSize="26.667" VerticalAlignment="Center"/>
         <GridView x:Name="control" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding fotolijst}" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,0,0,79">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="128" Width="128" Tapped="templateClick">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="7*"/>
-                            <RowDefinition Height="57*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="60*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Tapped="templateClick" TextWrapping="Wrap" Text="{Binding fotoNaam}"/>
                         <Image Tapped="templateClick" Source="{Binding path}" MaxWidth="128" MaxHeight="128" Grid.Row="1"/>

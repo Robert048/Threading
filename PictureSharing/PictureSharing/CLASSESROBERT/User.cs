@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PictureSharing
 {
-    class User
-    {
-        private long gebruikersID;
-        private string gebruikersNaam;
-        private string gebruikersPW;
-    }
+	class User
+	{
+		public long gebruikersID { get; set; }
+		public string gebruikersNaam { get; set; }
+		public string gebruikersPW { get; set; }
+	}
 }

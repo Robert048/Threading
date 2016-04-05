@@ -36,27 +36,18 @@ namespace PictureSharing
 		{
 			try {
 				user = await login.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
-
+				Frame.Navigate(typeof(MainPage));
 			}
-			catch
+			catch(Exception ex)
 			{
-				var dialog = new MessageDialog("lol faal");
+				var dialog = new MessageDialog("Niet gelukt in te loggen! Verkeerde gebruiker en/of wachtwoord!" + ex);
 				await dialog.ShowAsync();
 			}
-		}
-
-		private async void forgotPassword_Click(object sender, RoutedEventArgs e)
-		{
-			var dialog = new MessageDialog("Je bent een mogool");
-			await dialog.ShowAsync();
-
 		}
 
 		private void createAccount_Click(object sender, RoutedEventArgs e)
 		{
 			Frame.Navigate(typeof(RegisterPage));
 		}
-
-
 	}
 }

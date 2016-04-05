@@ -27,16 +27,22 @@ namespace PictureSharing
 		private ServiceReference1.Service1Client login = new ServiceReference1.Service1Client();
 		public static ServiceReference1.User user = new ServiceReference1.User();
 
+		// Initializing the Page.
 		public LogInPage()
 		{
 			this.InitializeComponent();
 		}
 
+		/// <summary>
+		///  Methode voor button inloggen.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void loginbtn_Click(object sender, RoutedEventArgs e)
 		{
 			try {
 				user = await login.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
-				Frame.Navigate(typeof(MainPage));
+				Frame.Navigate(typeof(MainPage),user);
 			}
 			catch(Exception ex)
 			{
@@ -45,6 +51,11 @@ namespace PictureSharing
 			}
 		}
 
+		/// <summary>
+		/// Methode voor klikken op register, refereert naar de Register Page.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void createAccount_Click(object sender, RoutedEventArgs e)
 		{
 			Frame.Navigate(typeof(RegisterPage));

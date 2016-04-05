@@ -47,28 +47,17 @@ namespace PictureSharing
             {
                 // Invalid Argument, return to MainPage?
                 ShowDialog();
-                //Frame.Navigate(typeof(MainPage));
+                Frame.Navigate(typeof(MainPage));
             }
-
-            if (Frame.CanGoBack)
-            {
-                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            }
-
         }
 
-        //private void PreviousHistory()
-        //{
-        //    if (this.Frame.CanGoBack)
-        //    {
-        //        this.Frame.GoBack();
-        //    }
-        //}
-
-        //private void btnBack_Click(object sender, RoutedEventArgs e)
-        //{
-        //    PreviousHistory();
-        //}
+        private void PreviousHistory()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+            }
+        }
 
         private async void ShowDialog()
         {
@@ -76,5 +65,9 @@ namespace PictureSharing
             await dialog.ShowAsync();
         }
 
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            PreviousHistory();
+        }
     }
 }

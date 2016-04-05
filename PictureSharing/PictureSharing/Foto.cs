@@ -8,17 +8,9 @@ namespace PictureSharing
 {
     class Foto
     {
-        private long fotoID;
-        private string fotoNaam;
-        private long gebruikersID;
-        private string path;
-
-        public Foto(long fotoID, string fotoNaam, long gebruikersID, string path)
-        {
-            this.fotoID = fotoID;
-            this.fotoNaam = fotoNaam;
-            this.gebruikersID = gebruikersID;
-            this.path = path;
-        }
+        public long fotoID { get; set; }
+        public string fotoNaam { get; set; }
+        public long gebruikersID { get; set; }
+        public string path { get; set; }
     }
 }

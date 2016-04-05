@@ -48,8 +48,8 @@
                             <RowDefinition Height="7*"/>
                             <RowDefinition Height="57*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock TextWrapping="Wrap" Text="{Binding fotoNaam}"/>
-                        <Image Source="{Binding path}" MaxWidth="128" MaxHeight="128" Grid.Row="1"/>
+                        <TextBlock Tapped="templateClick" TextWrapping="Wrap" Text="{Binding fotoNaam}"/>
+                        <Image Tapped="templateClick" Source="{Binding path}" MaxWidth="128" MaxHeight="128" Grid.Row="1"/>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>

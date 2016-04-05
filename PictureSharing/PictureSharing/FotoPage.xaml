@@ -8,6 +8,15 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+
+        <StackPanel>
+            <StackPanel Padding="20" Orientation="Horizontal">
+                <Button x:Name="btnBack" Content="Ga terug" Margin="0 0 0 0" Click="btnBack_Click" Style="{StaticResource NavigationBackButtonNormalStyle}"/>
+                <TextBlock Margin="20, 0, 0, 0" Style="{ThemeResource TitleTextBlockStyle}" Text="test"/>
+                <!-- {x:Bind Item.Title, Mode=OneWay} -->
+            </StackPanel>
+            <Image x:Name="image" Height="auto" Width="auto" Source="http://www.bnr.nl/incoming/858460-1511/aap.png/ALTERNATES/i/aap.png" Stretch="Fill"/>
+        </StackPanel>
+
     </Grid>
 </Page>

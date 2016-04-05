@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 namespace PictureSharing
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Display the image
     /// </summary>
     public sealed partial class FotoPage : Page
     {
@@ -29,7 +29,28 @@ namespace PictureSharing
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            if (e.Parameter is Foto)
+            {
+                this.DataContext = (Foto)e.Parameter;
+            }
+            else
+            {
+                // Invalid Argument, return to MainPage?
+            }
             base.OnNavigatedTo(e);
+        }
+
+        private void PreviousHistory()
+        {
+            if (this.Frame.CanGoBack)
+            {
+                this.Frame.GoBack();
+            }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            PreviousHistory();
         }
     }
 }

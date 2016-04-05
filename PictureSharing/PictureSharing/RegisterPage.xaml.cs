@@ -18,35 +18,40 @@ using Windows.UI.Xaml.Navigation;
 
 namespace PictureSharing
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
-    public sealed partial class RegisterPage : Page
-    {
-        public RegisterPage()
-        {
-            this.InitializeComponent();
-        }
+	/// <summary>
+	/// An empty page that can be used on its own or navigated to within a Frame.
+	/// </summary>
+	public sealed partial class RegisterPage : Page
+	{
+		private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+		public RegisterPage()
+		{
+			this.InitializeComponent();
+		}
 
-        private async void registerbtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                Authentication.Account register = new Authentication.Account();
-                register.registerAccount(usernametxt.Text, passwordtxt.Password,emailtxt.Text);
-                var dialog = new MessageDialog("User: " + usernametxt.Text + " successfully created" );
-                await dialog.ShowAsync();
-            }
-            catch
-            {
-                var dialog = new MessageDialog("Fail");
-                await dialog.ShowAsync();
-            }
-        }
+		private async void registerbtn_Click(object sender, RoutedEventArgs e)
+		{
+			try
+			{
+				ServiceReference1.User newUser = new ServiceReference1.User();
+				newUser.GebruikerNaam = usernametxt.Text;
+				newUser.GebruikersPW = passwordtxt.Password;
 
-        private void bk_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(LogInPage));
-        }
-    }
+				await client.AddGebruikerAsync(newUser);
+
+				var dialog = new MessageDialog("User: " + usernametxt.Text + " successfully created");
+				await dialog.ShowAsync();
+			}
+			catch
+			{
+				var dialog = new MessageDialog("Fail");
+				await dialog.ShowAsync();
+			}
+		}
+
+		private void bk_Click(object sender, RoutedEventArgs e)
+		{
+			Frame.Navigate(typeof(LogInPage));
+		}
+	}
 }

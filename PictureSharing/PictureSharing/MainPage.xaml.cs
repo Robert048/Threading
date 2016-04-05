@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using PictureSharing.ServiceReference1;
+using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using System;
 
 namespace PictureSharing
 {
@@ -8,13 +10,23 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private List<Foto> fotolijst = new List<Foto>();
+        private List<Foto> fotolijst { get; set; }
+        private ServiceReference1.Service1Client client = new Service1Client();
 
         public MainPage()
         {
             this.InitializeComponent();
-            Foto test = new Foto(1, "test", 1, "/test.png");
-            fotolijst.Add(test);
+            getFotos();
+        }
+
+        private async void getFotos()
+        {
+            var tempList = await client.GetAllFotosAsync();
+            foreach (var item in tempList)
+            {
+                fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
+            }
+            control.ItemsSource = fotolijst;
         }
     }
 }

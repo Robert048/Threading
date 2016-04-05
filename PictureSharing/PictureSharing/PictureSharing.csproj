@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="Authentication\Account.cs" />
     <Compile Include="Authentication\User.cs" />
+    <Compile Include="Foto.cs" />
     <Compile Include="FotoPage.xaml.cs">
       <DependentUpon>FotoPage.xaml</DependentUpon>
     </Compile>
@@ -119,6 +120,7 @@
     <Compile Include="UploadPage.xaml.cs">
       <DependentUpon>UploadPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -170,6 +172,14 @@
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

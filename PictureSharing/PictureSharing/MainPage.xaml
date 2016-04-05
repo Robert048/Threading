@@ -8,6 +8,48 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="VisualStateGroup">
+                <VisualState x:Name="minWidth_800">
+                    <VisualState.Setters>
+                        <Setter Target="btnSettings.(Control.Foreground).(SolidColorBrush.Color)">
+                            <Setter.Value>
+                                <Color>Black</Color>
+                            </Setter.Value>
+                        </Setter>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="800"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="WidthBelow_800"/>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="88*"/>
+            <ColumnDefinition Width="436*"/>
+            <ColumnDefinition Width="873*"/>
+            <ColumnDefinition Width="436*"/>
+            <ColumnDefinition Width="87*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="btnPrevious" Content="Vorige" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button x:Name="btnNext" Content="Volgende" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button x:Name="btnSettings" Content="Settings" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,5"/>
+        <Button x:Name="btnRefresh" Content="Refresh" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0"/>
+        <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Fotoviewer" TextAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock x:Name="txtResult" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="Resultaat .. van de .." Margin="0,3,0,828" Grid.RowSpan="2"/>
+        <!--<ItemsControl Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding fotolijst}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>-->
     </Grid>
 </Page>

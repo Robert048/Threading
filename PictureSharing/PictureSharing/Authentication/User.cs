@@ -8,6 +8,9 @@ namespace PictureSharing.Authentication
 {
     class User
     {
-        public string user;
+        public int userId;
+        public string username;
+        public string password;
+        public string email;
     }
 }

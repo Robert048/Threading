@@ -8,6 +8,31 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="101*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="165*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="509*"/>
+            <ColumnDefinition Width="262*"/>
+            <ColumnDefinition Width="509*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="usernametxt" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,45.667,143,0.333" Grid.RowSpan="2"/>
+        <PasswordBox x:Name="passwordtxt" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,45.667,143,0.333" Grid.RowSpan="2"/>
+        <Button x:Name="registerbtn" Content="Register" Click="registerbtn_Click" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" Height="32" Margin="0,12,143,11.333" Width="74" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="emailtxt" TextWrapping="Wrap" Text="" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,143,0"/>
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,12.667,3.667,13.333" Height="20" Width="67"/>
+        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Password" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6,12.667,5.667,13.333" Height="20" Width="62"/>
+        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Email" Margin="19,12.667,18.667,13"/>
+        <Button x:Name="bk" Content="Back" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" Click="bk_Click"/>
 
     </Grid>
 </Page>

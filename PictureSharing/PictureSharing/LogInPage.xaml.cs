@@ -26,5 +26,19 @@ namespace PictureSharing
         {
             this.InitializeComponent();
         }
+
+        private void loginbtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private async void forgotPassword_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void createAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(RegisterPage));
+        }
     }
 }

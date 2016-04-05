@@ -37,8 +37,8 @@ namespace ThreadingServices
         User InlogMethode(String gebrNaam, String password);
 
         // TODO: Uitzoeken en uitbreiden
-        [OperationContract]
-        void UploadFoto(string filename, Stream stream);
+        //[OperationContract]
+        //void UploadFoto(string filename, Stream stream);
         // ---------------------------
 
         [OperationContract]

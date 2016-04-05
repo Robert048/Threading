@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -36,6 +37,7 @@ namespace PictureSharing
             else
             {
                 // Invalid Argument, return to MainPage?
+                ShowDialog();
             }
             base.OnNavigatedTo(e);
         }
@@ -51,6 +53,12 @@ namespace PictureSharing
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             PreviousHistory();
+        }
+
+        private async void ShowDialog()
+        {
+            var dialog = new MessageDialog("Afbeelding niet gevonden. Keer terug naar overzicht.");
+            await dialog.ShowAsync();
         }
     }
 }

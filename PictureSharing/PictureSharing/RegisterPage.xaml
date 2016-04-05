@@ -7,32 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="101*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="42*"/>
-            <RowDefinition Height="165*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="509*"/>
-            <ColumnDefinition Width="262*"/>
-            <ColumnDefinition Width="509*"/>
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="usernametxt" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,45.667,143,0.333" Grid.RowSpan="2"/>
-        <PasswordBox x:Name="passwordtxt" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,45.667,143,0.333" Grid.RowSpan="2"/>
-        <Button x:Name="registerbtn" Content="Register" Click="registerbtn_Click" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" Height="32" Margin="0,12,143,11.333" Width="74" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="emailtxt" TextWrapping="Wrap" Text="" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,143,0"/>
-        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="3,12.667,3.667,13.333" Height="20" Width="67"/>
-        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Password" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="6,12.667,5.667,13.333" Height="20" Width="62"/>
-        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Email" Margin="19,12.667,18.667,13"/>
-        <Button x:Name="bk" Content="Back" Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" Click="bk_Click"/>
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="100*"/>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="32*"/>
+			<RowDefinition Height="34*"/>
+			<RowDefinition Height="32*"/>
+			<RowDefinition Height="34*"/>
+			<RowDefinition Height="45*"/>
+			<RowDefinition Height="45*"/>
+			<RowDefinition Height="44*"/>
+			<RowDefinition Height="170*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="200*"/>
+			<ColumnDefinition Width="350*"/>
+			<ColumnDefinition Width="200*"/>
+		</Grid.ColumnDefinitions>
+		<TextBox x:Name="usernametxt" TextAlignment="Center" TextWrapping="Wrap" Text="" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Foreground="#FFF23E2D"/>
+		<PasswordBox x:Name="passwordtxt" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Foreground="#FFF23E2D" PlaceholderText="password"/>
+		<Button x:Name="registerbtn" Content="register" Click="registerbtn_Click" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Background="#FFF4581F" Foreground="White"/>
+		<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="username" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="20" Width="67" FontSize="14" Foreground="#FFEDBC7D"/>
+		<TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="password" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Height="20" Width="62" FontSize="14" Foreground="#FFEDBC7D"/>
+		<Button x:Name="bk" Content="back" Grid.Column="1" Grid.Row="7" Click="bk_Click" HorizontalAlignment="Center" Background="#FFF4581F" Foreground="White"/>
+		<Image x:Name="image" Grid.Column="1" Source="Assets/Schermafbeelding 2016-04-04 om 12.31.14.png"/>
+		<TextBlock x:Name="textBlock2" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="register" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18.667" Foreground="#FFF23E2D"/>
 
-    </Grid>
+	</Grid>
 </Page>

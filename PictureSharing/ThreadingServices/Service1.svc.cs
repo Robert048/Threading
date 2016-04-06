@@ -131,33 +131,33 @@ namespace ThreadingServices
                 }
             }
 
-            public void UploadFoto(String filename, Stream stream, long gebrID)
-            {
-                string filePath = Path.Combine(("C:/Users/Martijn/Pictures/servicepics"), filename); // Host HostingEnvironment.MapPath
-                int length = 0;
+            //public void UploadFoto(String filename, Stream stream, long gebrID)
+            //{
+            //    string filePath = Path.Combine(("C:/Users/Martijn/Pictures/servicepics"), filename); // Host HostingEnvironment.MapPath
+            //    int length = 0;
        
-                using (FileStream writer = new FileStream(filePath, FileMode.Create))
-                {
-                    int readCount;
-                    var buffer = new byte[8192];
-                    while ((readCount = stream.Read(buffer, 0, buffer.Length)) != 0)
-                    {
-                        writer.Write(buffer,0,readCount);
-                        length += readCount;
-                    }
-                }
-                using (ThreadingEntities ent = new ThreadingEntities())
-                {
-                    Foto foto = new Foto();
-                    foto.FotoNaam = filename;
-                    foto.Path = filePath;
-                    foto.GebruikerID = gebrID;
+            //    using (FileStream writer = new FileStream(filePath, FileMode.Create))
+            //    {
+            //        int readCount;
+            //        var buffer = new byte[8192];
+            //        while ((readCount = stream.Read(buffer, 0, buffer.Length)) != 0)
+            //        {
+            //            writer.Write(buffer,0,readCount);
+            //            length += readCount;
+            //        }
+            //    }
+            //    using (ThreadingEntities ent = new ThreadingEntities())
+            //    {
+            //        Foto foto = new Foto();
+            //        foto.FotoNaam = filename;
+            //        foto.Path = filePath;
+            //        foto.GebruikerID = gebrID;
 
-                    ent.Fotoes.Add(foto);
-                    ent.Fotoes.Attach(foto);
-                    ent.SaveChanges();
-            }
-            }
+            //        ent.Fotoes.Add(foto);
+            //        ent.Fotoes.Attach(foto);
+            //        ent.SaveChanges();
+            //}
+            //}
 
             public string GetFotoNaam(long fotoID)
             {
@@ -273,6 +273,7 @@ namespace ThreadingServices
                 {
                     var removeFoto = (from f in ent.Fotoes where f.FotoID == fotoID select f).First();
                     ent.Fotoes.Remove(removeFoto);
+                    ent.SaveChanges();
                 }
             }
         }

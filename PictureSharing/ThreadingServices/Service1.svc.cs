@@ -310,7 +310,7 @@ namespace ThreadingServices
 			{
 				var removeFoto = (from f in ent.Fotoes where f.FotoID == fotoID select f).First();
 				ent.Fotoes.Remove(removeFoto);
-				ent.SaveChangesAsync();
+				ent.SaveChanges();
 			}
 		}
 	}

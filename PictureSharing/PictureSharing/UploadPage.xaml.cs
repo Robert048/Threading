@@ -37,14 +37,16 @@ namespace PictureSharing
 
         private async void openBtn_Click(object sender, RoutedEventArgs e)
         {
-            
+            //Create a filepicker
             FileOpenPicker openPicker = new FileOpenPicker();
 
+            //Add settings to the filepicker
             openPicker.ViewMode = PickerViewMode.Thumbnail;
             openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
             openPicker.FileTypeFilter.Add(".jpg");
             openPicker.FileTypeFilter.Add(".png");
-
+            
+            //We have to wait until the user has decided which images he wants to upload, if any
             IReadOnlyList<StorageFile> filelist = await openPicker.PickMultipleFilesAsync();
 
 
@@ -72,10 +74,18 @@ namespace PictureSharing
             }
         }
 
+        //Clear the screen and cancels all uploads that havent started yet
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
             uploadImages.Clear();
         }
+
+        //Return to the overview
+        private void backBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
 
         private async void uploadBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -115,6 +125,7 @@ namespace PictureSharing
         }
 
 
+
         //converts a Windows RandomAccessStream to a byte array 
         public static byte[] ReadFully(Stream input)
         {
@@ -123,11 +134,8 @@ namespace PictureSharing
                 input.CopyTo(ms);
                 return ms.ToArray();
             }
-        }
-
-        
+        }      
     }
-
 
     //The item used to display all the chosen images and their statuses
     public class uploadIMG : INotifyPropertyChanged

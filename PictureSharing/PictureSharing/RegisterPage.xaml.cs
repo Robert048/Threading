@@ -23,17 +23,29 @@ namespace PictureSharing
 	/// </summary>
 	public sealed partial class RegisterPage : Page
 	{
+		/// <summary>
+		/// Creates Service Client
+		/// </summary>
 		private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+		private ServiceReference1.User newUser = new ServiceReference1.User();
+
+		/// <summary>
+		/// Initializes Page
+		/// </summary>
 		public RegisterPage()
 		{
 			this.InitializeComponent();
 		}
 
+		/// <summary>
+		/// Method for button to Register new User.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void registerbtn_Click(object sender, RoutedEventArgs e)
 		{
 			try
 			{
-				ServiceReference1.User newUser = new ServiceReference1.User();
 				newUser.GebruikerNaam = usernametxt.Text;
 				newUser.GebruikersPW = passwordtxt.Password;
 
@@ -49,6 +61,11 @@ namespace PictureSharing
 			}
 		}
 
+		/// <summary>
+		/// Method for button click to return to login page.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void bk_Click(object sender, RoutedEventArgs e)
 		{
 			Frame.Navigate(typeof(LogInPage));

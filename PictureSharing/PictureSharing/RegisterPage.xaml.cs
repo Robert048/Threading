@@ -27,7 +27,6 @@ namespace PictureSharing
 		/// Creates Service Client
 		/// </summary>
 		private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-		private ServiceReference1.User newUser = new ServiceReference1.User();
 
 		/// <summary>
 		/// Initializes Page
@@ -44,19 +43,39 @@ namespace PictureSharing
 		/// <param name="e"></param>
 		private async void registerbtn_Click(object sender, RoutedEventArgs e)
 		{
-			try
+			if (!String.IsNullOrWhiteSpace(passwordtxt.Password) && !String.IsNullOrWhiteSpace(usernametxt.Text))
 			{
-				newUser.GebruikerNaam = usernametxt.Text;
-				newUser.GebruikersPW = passwordtxt.Password;
+				bool check = false;
 
-				await client.AddGebruikerAsync(newUser);
+				var gebruikers = await client.GetAllGebruikersAsync();
+				foreach (var user in gebruikers)
+				{
+					if (usernametxt.Text == user.GebruikerNaam)
+					{
+						check = true;
+					}
+				}
 
-				var dialog = new MessageDialog("User: " + usernametxt.Text + " successfully created");
-				await dialog.ShowAsync();
+				if (!check)
+				{
+					ServiceReference1.User newUser = new ServiceReference1.User();
+					newUser.GebruikerNaam = usernametxt.Text;
+					newUser.GebruikersPW = passwordtxt.Password;
+
+					await client.AddGebruikerAsync(newUser);
+
+					var dialogCreated = new MessageDialog("User: " + usernametxt.Text + " successfully created");
+					await dialogCreated.ShowAsync();
+				}
+				else
+				{
+					var dialog = new MessageDialog("Username bestaat al");
+					await dialog.ShowAsync();
+				}
 			}
-			catch
+			else
 			{
-				var dialog = new MessageDialog("Fail");
+				var dialog = new MessageDialog("Velden mogen niet leeg zijn");
 				await dialog.ShowAsync();
 			}
 		}

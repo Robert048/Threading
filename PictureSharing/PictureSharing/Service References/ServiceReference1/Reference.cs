@@ -172,6 +172,9 @@ namespace PictureSharing.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGebruiker", ReplyAction="http://tempuri.org/IService1/GetGebruikerResponse")]
         System.Threading.Tasks.Task<PictureSharing.ServiceReference1.User> GetGebruikerAsync(long gebrID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGebruikerByName", ReplyAction="http://tempuri.org/IService1/GetGebruikerByNameResponse")]
+        System.Threading.Tasks.Task<bool> GetGebruikerByNameAsync(string gebruikersnaam);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllGebruikers", ReplyAction="http://tempuri.org/IService1/GetAllGebruikersResponse")]
         System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.ServiceReference1.User>> GetAllGebruikersAsync();
         
@@ -277,6 +280,10 @@ namespace PictureSharing.ServiceReference1 {
         
         public System.Threading.Tasks.Task<PictureSharing.ServiceReference1.User> GetGebruikerAsync(long gebrID) {
             return base.Channel.GetGebruikerAsync(gebrID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> GetGebruikerByNameAsync(string gebruikersnaam) {
+            return base.Channel.GetGebruikerByNameAsync(gebruikersnaam);
         }
         
         public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.ServiceReference1.User>> GetAllGebruikersAsync() {

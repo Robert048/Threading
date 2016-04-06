@@ -30,6 +30,9 @@ namespace ThreadingServices
         [OperationContract]
         User GetGebruiker(long gebrID);
 
+				[OperationContract]
+				bool GetGebruikerByName(String gebruikersnaam);
+
         [OperationContract]
         List<User> GetAllGebruikers();
 

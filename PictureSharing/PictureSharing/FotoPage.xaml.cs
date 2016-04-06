@@ -1,4 +1,5 @@
 ﻿using System;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -11,6 +12,7 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class FotoPage : Page
     {
+        private const string noImage = "De afbeelding kon niet worden geladen.";
         public FotoPage()
         {
             this.InitializeComponent();
@@ -29,7 +31,7 @@ namespace PictureSharing
             else
             {
                 // Ongeldig argument // terug naar overzicht 
-                ShowDialog();
+                ShowDialog(noImage);
                 Frame.Navigate(typeof(MainPage));
             }
         }
@@ -37,9 +39,9 @@ namespace PictureSharing
         /// <summary>
         /// Toon bericht als er geen afbeeling object is ontvangen
         /// </summary>
-        private async void ShowDialog()
+        private async void ShowDialog(String message)
         {
-            MessageDialog dialog = new MessageDialog("De afbeelding kon niet worden geladen.", "Geen Afbeeling");
+            MessageDialog dialog = new MessageDialog(message);
             await dialog.ShowAsync();
         }
 

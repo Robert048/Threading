@@ -11,13 +11,6 @@
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="minWidth_800">
-                    <VisualState.Setters>
-                        <Setter Target="btnSettings.(Control.Foreground).(SolidColorBrush.Color)">
-                            <Setter.Value>
-                                <Color>White</Color>
-                            </Setter.Value>
-                        </Setter>
-                    </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="800"/>
                     </VisualState.StateTriggers>

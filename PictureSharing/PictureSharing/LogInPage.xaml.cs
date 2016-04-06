@@ -47,7 +47,7 @@ namespace PictureSharing
 			{
 				user = await client.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
 				User currentUser = new User() { gebruikersID = user.GebruikerID, gebruikersNaam = user.GebruikerNaam, gebruikersPW = user.GebruikersPW };
-				localSettings.Values["currentuser"] = currentUser;
+				localSettings.Values["currentUser"] = currentUser.gebruikersID;
 				Frame.Navigate(typeof(MainPage));
 			}
 			catch (Exception ex)

@@ -38,8 +38,8 @@ namespace PictureSharing
 
             try
             {
-                User currentuser = (User)localSettings.Values["currentuser"];
-                userId = currentuser.gebruikersID;
+                long currentUserID = (long)localSettings.Values["currentUser"];
+                userId = currentUserID;
             }
             catch(Exception)
             {

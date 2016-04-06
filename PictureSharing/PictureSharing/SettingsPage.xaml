@@ -8,53 +8,6 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="VisualStateGroup">
-                <VisualState x:Name="minWidth_800">
-                    <VisualState.Setters>
-                        <Setter Target="btnSettings.(Control.Foreground).(SolidColorBrush.Color)">
-                            <Setter.Value>
-                                <Color>Black</Color>
-                            </Setter.Value>
-                        </Setter>
-                    </VisualState.Setters>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="800"/>
-                    </VisualState.StateTriggers>
-                </VisualState>
-                <VisualState x:Name="WidthBelow_800"/>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="88*"/>
-            <ColumnDefinition Width="436*"/>
-            <ColumnDefinition Width="873*"/>
-            <ColumnDefinition Width="436*"/>
-            <ColumnDefinition Width="87*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="83*"/>
-            <RowDefinition Height="83*"/>
-            <RowDefinition Height="914*"/>
-        </Grid.RowDefinitions>
-        <Button x:Name="btnSettings" Content="Afbeelding uploaden" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnSettings_Click"/>
-        <Button x:Name="btnRefresh" Content="Terug naar overzicht" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnRefresh_Click"/>
-        <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Fotoviewer" TextAlignment="Center" Margin="0,32,0,31" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
-        <GridView x:Name="control" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding fotolijst}" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,0,0,79">
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Height="128" Width="128">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="15*"/>
-                            <RowDefinition Height="57*"/>
-                            <RowDefinition Height="56*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock TextWrapping="Wrap" Text="{Binding fotoNaam}" FontSize="12" Height="100"/>
-                        <Image Source="{Binding path}" MaxWidth="125" MaxHeight="125" Grid.Row="1"/>
-                        <Button x:Name="button" Content="Verwijder" HorizontalAlignment="Stretch" Margin="34,0,41,21" Grid.Row="2" VerticalAlignment="Stretch" FontSize="8" Click="button_Click" Tag="{Binding fotoID}"/>
-                    </Grid>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-        </GridView>
+
     </Grid>
 </Page>

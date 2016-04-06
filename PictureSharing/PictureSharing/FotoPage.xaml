@@ -15,7 +15,7 @@
         <StackPanel>
             <StackPanel Padding="20" Orientation="Horizontal">
                 <Button x:Name="btnBack" Content="Terug" Margin="0 0 0 0" Click="btnBack_Click"/>
-                <TextBlock Margin="20, 0, 0, 0" Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding fotoNaam}"/>
+                <TextBlock TextWrapping="Wrap" Margin="20, 0, 0, 0" Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding fotoNaam}"/>
             </StackPanel>
             <Image x:Name="image" Height="auto" Width="auto" Source="{Binding path}" Stretch="Fill"/>
         </StackPanel>

@@ -38,7 +38,7 @@ namespace ThreadingServices
 
         // TODO: Uitzoeken en uitbreiden
         [OperationContract]
-        void UploadFoto(string filename, Stream stream, long id);
+        string UploadFoto(string filename, byte[] imageStream, long gebrID);
         // ---------------------------
 
         [OperationContract]

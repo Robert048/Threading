@@ -8,6 +8,27 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.Resources>
+            <DataTemplate x:Key="uploadImage">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100px"/>
+                        <ColumnDefinition Width="20px"/>
+                        <ColumnDefinition Width="0.4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Path=filename}" Grid.Column="0"/>
+                    <TextBlock Text="{Binding Path=uploadstatus}" Grid.Column="2"/>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <Button Click="openBtn_Click" Margin="10,66,0,262">Pick images</Button>
+        <Button Click="uploadBtn_Click" Margin="10,211,0,117">Upload</Button>
+        <Button Click="clearBtn_Click" Margin="10,160,0,168">Clear</Button>
+        <ListBox Name="uploadStatusListbox" Margin="153,88,74,168" ItemsSource="{Binding}" ItemTemplate="{StaticResource uploadImage}">
+            <ListBoxItem ContentTemplate="{Binding UploadIMG}" Width="271">
+ 
+            </ListBoxItem>
+        </ListBox>
+        
     </Grid>
 </Page>

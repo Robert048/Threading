@@ -131,18 +131,22 @@ namespace ThreadingServices
                 }
             }
 
-            public void UploadFoto(String filename, Stream stream, long gebrID)
+            public string UploadFoto(String filename, byte[] imageStream, long gebrID)
             {
-                string filePath = Path.Combine(("C:/Users/Martijn/Pictures/servicepics"), filename); // Host HostingEnvironment.MapPath
+                
+                string filePath = Path.Combine((Environment.GetFolderPath(Environment.SpecialFolder.Desktop)), filename); // Host HostingEnvironment.MapPath
                 int length = 0;
-       
+                Stream stream = new MemoryStream(imageStream);
+
+                stream.Position = 0;
+            
                 using (FileStream writer = new FileStream(filePath, FileMode.Create))
                 {
                     int readCount;
                     var buffer = new byte[8192];
                     while ((readCount = stream.Read(buffer, 0, buffer.Length)) != 0)
                     {
-                        writer.Write(buffer,0,readCount);
+                        writer.Write(buffer, 0, readCount);
                         length += readCount;
                     }
                 }
@@ -156,7 +160,9 @@ namespace ThreadingServices
                     ent.Fotoes.Add(foto);
                     ent.Fotoes.Attach(foto);
                     ent.SaveChanges();
-            }
+                }
+
+                return "Succes";
             }
 
             public string GetFotoNaam(long fotoID)
@@ -275,5 +281,10 @@ namespace ThreadingServices
                     ent.Fotoes.Remove(removeFoto);
                 }
             }
-        }
+
+		public void UploadFoto(string filename, Stream stream)
+		{
+			throw new NotImplementedException();
+		}
+	}
     }

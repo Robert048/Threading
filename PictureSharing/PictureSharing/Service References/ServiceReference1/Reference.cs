@@ -179,7 +179,7 @@ namespace PictureSharing.ServiceReference1 {
         System.Threading.Tasks.Task<PictureSharing.ServiceReference1.User> InlogMethodeAsync(string gebrNaam, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UploadFoto", ReplyAction="http://tempuri.org/IService1/UploadFotoResponse")]
-        System.Threading.Tasks.Task UploadFotoAsync();
+        System.Threading.Tasks.Task<string> UploadFotoAsync(string filename, byte[] imageStream, long gebrID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFotoNaam", ReplyAction="http://tempuri.org/IService1/GetFotoNaamResponse")]
         System.Threading.Tasks.Task<string> GetFotoNaamAsync(long fotoID);
@@ -287,8 +287,8 @@ namespace PictureSharing.ServiceReference1 {
             return base.Channel.InlogMethodeAsync(gebrNaam, password);
         }
         
-        public System.Threading.Tasks.Task UploadFotoAsync() {
-            return base.Channel.UploadFotoAsync();
+        public System.Threading.Tasks.Task<string> UploadFotoAsync(string filename, byte[] imageStream, long gebrID) {
+            return base.Channel.UploadFotoAsync(filename, imageStream, gebrID);
         }
         
         public System.Threading.Tasks.Task<string> GetFotoNaamAsync(long fotoID) {

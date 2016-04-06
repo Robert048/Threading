@@ -22,11 +22,11 @@ namespace PictureSharing
         private async void getFotos()
         {
             var tempList = await client.GetAllFotosAsync();
+            fotolijst = new List<Foto>();
             foreach (var item in tempList)
             {
                 fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
             }
-            fotolijst.Add(new Foto() { fotoID = 1, fotoNaam = "naam", gebruikersID = 1, path = "f" });
             control.ItemsSource = fotolijst;
         }
 
@@ -42,7 +42,8 @@ namespace PictureSharing
 
         private void templateClick(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            Frame.Navigate(typeof(SettingsPage));
+            Foto selectedFoto = (Foto)control.SelectedItem;
+            Frame.Navigate(typeof(FotoPage), selectedFoto);
         }
     }
 }

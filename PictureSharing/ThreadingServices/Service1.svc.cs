@@ -11,10 +11,9 @@ using System.Web.Script;
 
 namespace ThreadingServices
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
+            // Haal de gebruikersnaam op uit de database
             public string GetGebruikersNaam(long gebrID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -23,6 +22,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Haal het wachtwoord op uit de database
             public string GetGebruikersPW(long gebrID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -31,6 +31,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Haal de gebruiker uit de database aan de hand van de gebruikers ID en return een USER object met de informatie
             public User GetGebruiker(long gebrID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -47,7 +48,8 @@ namespace ThreadingServices
                     return null;
                 }
             }
-
+            
+            // Methode die een USER object returned aan de hand van de gebruikersnaam en wachtwoord van de gebruiker
             public User InlogMethode(String gebrNaam, String password)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -70,6 +72,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Verander de gebruikersnaam in de database aan de hand van gebruikersID
             public bool SetGebruikersNaam(String gebrNaam, long gebrID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -85,6 +88,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Set het wachtwoord van de gebruiker in de database aan de hand van de gebruikersID
             public bool SetGebruikersPW(String pw, long gebrID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -100,6 +104,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Voeg een nieuwe gebruiker toe aan de database
             public void AddGebruiker(User gebruiker)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -110,6 +115,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Haal alle aanwezige gebruikers op uit de database
             public List<User> GetAllGebruikers()
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -131,6 +137,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Upload een foto en store hem lokaal, zet een referentie naar de foto in de database
             public string UploadFoto(String filename, byte[] imageStream, long gebrID)
             {
                 
@@ -165,6 +172,7 @@ namespace ThreadingServices
                 return "Succes";
             }
 
+            // Haal de naam van de foto op uit de database aan de hand van fotoID
             public string GetFotoNaam(long fotoID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -173,6 +181,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Haal het pad op van de opgeslagen foto uit de database aan de hand van fotoID
             public string GetFotoPath(long fotoId)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -181,6 +190,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Zet een nieuw pad voor een foto aan de hand van fotoID
             public bool SetFotoPath(long fotoID, string path)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -195,7 +205,8 @@ namespace ThreadingServices
                     return false;
                 }
             }
-
+            
+            // Geef de foto een nieuwe naam aan de hand van fotoID
             public bool SetFotoNaam(long fotoID, string naam)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -211,6 +222,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Voeg een nieuwe foto toe aan de database
             public void AddFoto(Foto foto)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -219,6 +231,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Haal het gebruikersID op van de foto aan de hand van fotoID
             public long GetGebruikerID(long fotoID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -227,6 +240,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Return een foto object aan de hand van gebruikerID
             public Foto GetFotoByGebruiker(long gebrID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -235,6 +249,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Return een lijst met foto's uit de database
             public List<Foto> GetAllFotos()
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -254,6 +269,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Return een lijst met foto's aan de hand van gebruikerID
             public List<Foto> GetAllFotosById(long gebrId)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -273,6 +289,7 @@ namespace ThreadingServices
                 }
             }
 
+            // Delete een foto uit de database
             public void DeleteFoto(long fotoID)
             {
                 using (ThreadingEntities ent = new ThreadingEntities())
@@ -282,10 +299,5 @@ namespace ThreadingServices
                     ent.SaveChangesAsync();
                 }
             }
-
-		public void UploadFoto(string filename, Stream stream)
-		{
-			throw new NotImplementedException();
-		}
-	}
+	    }
     }

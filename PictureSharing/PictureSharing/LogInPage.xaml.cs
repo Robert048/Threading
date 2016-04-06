@@ -26,6 +26,7 @@ namespace PictureSharing
 	{
 		private ServiceReference1.Service1Client login = new ServiceReference1.Service1Client();
 		public static ServiceReference1.User user = new ServiceReference1.User();
+		private ServiceReference1.User currentUser;
 
 		// Initializing the Page.
 		public LogInPage()
@@ -43,6 +44,7 @@ namespace PictureSharing
 			try {
 				user = await login.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
 				Frame.Navigate(typeof(MainPage),user);
+				currentUser = user;
 			}
 			catch(Exception ex)
 			{
@@ -59,6 +61,15 @@ namespace PictureSharing
 		private void createAccount_Click(object sender, RoutedEventArgs e)
 		{
 			Frame.Navigate(typeof(RegisterPage));
+		}
+
+		/// <summary>
+		/// Gets current logged in User
+		/// </summary>
+		/// <returns></returns>
+		public ServiceReference1.User getUser()
+		{
+			return currentUser;
 		}
 	}
 }

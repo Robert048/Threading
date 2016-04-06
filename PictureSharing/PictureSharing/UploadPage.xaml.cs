@@ -26,7 +26,7 @@ namespace PictureSharing
     {
         public ObservableCollection<uploadIMG> uploadImages { get; set; }
         private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private long userId;
 
         public UploadPage()
@@ -36,8 +36,16 @@ namespace PictureSharing
             uploadImages = new ObservableCollection<uploadIMG>();
             uploadStatusListbox.ItemsSource = uploadImages;
 
-            
-            
+            try
+            {
+                User currentuser = (User)localSettings.Values["currentuser"];
+                userId = currentuser.gebruikersID;
+            }
+            catch(Exception)
+            {
+                Frame.Navigate(typeof(LogInPage));
+            }
+
         }
 
         private async void openBtn_Click(object sender, RoutedEventArgs e)
@@ -116,7 +124,6 @@ namespace PictureSharing
         private async Task<string> MakePostRequest(uploadIMG image)
         {
             
-
             //Try to upload the image
             try
             {

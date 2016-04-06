@@ -40,21 +40,25 @@ namespace PictureSharing
         //method to get fotos
         private async void getFotos()
         {
+
             //get's current user logged in
             LogInPage page = new LogInPage();
             var user = page.getUser();
-     
-            // get all foto's by user ID
-            var tempList = await client.GetAllFotosByIdAsync(user.GebruikerID);
 
-            List<Foto> fotolijst = new List<Foto>();
-            //adds foto's found to the list
-            foreach (var item in tempList)
+            // get all foto's by user ID
+            if (user != null)
             {
-                fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
+                var tempList = await client.GetAllFotosByIdAsync(user.GebruikerID);
+
+                List<Foto> fotolijst = new List<Foto>();
+                //adds foto's found to the list
+                foreach (var item in tempList)
+                {
+                    fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
+                }
+                // bind control with fotolijst
+                control.ItemsSource = fotolijst;
             }
-            // bind control with fotolijst
-            control.ItemsSource = fotolijst;
         }
 
         //go to the uploadpage

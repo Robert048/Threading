@@ -37,7 +37,7 @@
             <RowDefinition Height="83*"/>
             <RowDefinition Height="914*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnSettings" Content="Upload" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="0,0,0,5" Click="btnSettings_Click" Background="#FFF4571F" Foreground="White" Grid.ColumnSpan="2" Width="82"/>
+        <Button x:Name="btnSettings" Content="Upload" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnSettings_Click" Background="#FFF4571F" Foreground="White" Margin="0,0,0,5"/>
         <Button x:Name="btnRefresh" Content="Terug" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnRefresh_Click" Background="#FFF4571F" Foreground="White"/>
         <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="Fotos" TextAlignment="Center" Foreground="#FFEDBC7D" FontSize="26.667"/>
         <GridView x:Name="control" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding fotolijst}" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,0,0,79">

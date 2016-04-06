@@ -43,10 +43,10 @@ namespace PictureSharing
         {
 
             try {
-                User user = (User)localSettings.Values["currentuser"];
+                long userID = (long)localSettings.Values["currentUser"];
 
                 // get all foto's by user ID           
-                var tempList = await client.GetAllFotosByIdAsync(user.gebruikersID);
+                var tempList = await client.GetAllFotosByIdAsync(userID);
 
                 List<Foto> fotolijst = new List<Foto>();
                 //adds foto's found to the list

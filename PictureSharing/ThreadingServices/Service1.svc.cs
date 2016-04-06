@@ -178,8 +178,8 @@ namespace ThreadingServices
 				foto.Path = filePath;
 				foto.GebruikerID = gebrID;
 
-				ent.Fotoes.Add(foto);
 				ent.Fotoes.Attach(foto);
+				ent.Fotoes.Add(foto);
 				ent.SaveChanges();
 			}
 

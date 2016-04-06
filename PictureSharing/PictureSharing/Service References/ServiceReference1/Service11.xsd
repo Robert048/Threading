@@ -85,6 +85,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetGebruikerByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gebruikersnaam" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGebruikerByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetGebruikerByNameResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllGebruikers">
     <xs:complexType>
       <xs:sequence />
@@ -114,12 +128,18 @@
   </xs:element>
   <xs:element name="UploadFoto">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="imageStream" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UploadFotoResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadFotoResult" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetFotoNaam">

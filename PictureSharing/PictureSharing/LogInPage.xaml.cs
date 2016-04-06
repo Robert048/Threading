@@ -25,13 +25,14 @@ namespace PictureSharing
 	/// </summary>
 	public sealed partial class LogInPage : Page
 	{
-		private ServiceReference1.Service1Client login = new ServiceReference1.Service1Client();
+		private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
 		public static ServiceReference1.User user = new ServiceReference1.User();
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         // Initializing the Page.
         public LogInPage()
 		{
+
 			this.InitializeComponent();
 		}
 
@@ -42,13 +43,14 @@ namespace PictureSharing
 		/// <param name="e"></param>
 		private async void loginbtn_Click(object sender, RoutedEventArgs e)
 		{
-			try {
-				user = await login.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
-                User currentUser = new User() { gebruikersID = user.GebruikerID, gebruikersNaam = user.GebruikerNaam, gebruikersPW = user.GebruikersPW};
-                localSettings.Values["currentuser"] = currentUser;
-                Frame.Navigate(typeof(MainPage));			
+			try
+			{
+				user = await client.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
+				User currentUser = new User() { gebruikersID = user.GebruikerID, gebruikersNaam = user.GebruikerNaam, gebruikersPW = user.GebruikersPW };
+				localSettings.Values["currentuser"] = currentUser;
+				Frame.Navigate(typeof(MainPage));
 			}
-			catch(Exception ex)
+			catch (Exception ex)
 			{
 				var dialog = new MessageDialog("Niet gelukt in te loggen! Verkeerde gebruiker en/of wachtwoord!" + ex);
 				await dialog.ShowAsync();

@@ -43,6 +43,12 @@
   <wsdl:message name="IService1_GetGebruiker_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGebruikerResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetGebruikerByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGebruikerByName" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGebruikerByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGebruikerByNameResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetAllGebruikers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGebruikers" />
   </wsdl:message>
@@ -146,6 +152,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGebruiker" message="tns:IService1_GetGebruiker_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGebruikerResponse" message="tns:IService1_GetGebruiker_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetGebruikerByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGebruikerByName" message="tns:IService1_GetGebruikerByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGebruikerByNameResponse" message="tns:IService1_GetGebruikerByName_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllGebruikers">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllGebruikers" message="tns:IService1_GetAllGebruikers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllGebruikersResponse" message="tns:IService1_GetAllGebruikers_OutputMessage" />
@@ -248,6 +258,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGebruiker">
       <soap:operation soapAction="http://tempuri.org/IService1/GetGebruiker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGebruikerByName">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGebruikerByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

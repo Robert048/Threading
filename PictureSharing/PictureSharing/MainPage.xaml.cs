@@ -1,12 +1,11 @@
 ﻿using PictureSharing.ServiceReference1;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
-using System;
 
 namespace PictureSharing
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// PictureSharing main page with picture view
     /// </summary>
     public sealed partial class MainPage : Page
     {
@@ -19,6 +18,9 @@ namespace PictureSharing
             getFotos();
         }
 
+        /// <summary>
+        /// Method to get the foto's from service for the mainpage
+        /// </summary>
         private async void getFotos()
         {
             var tempList = await client.GetAllFotosAsync();
@@ -27,8 +29,11 @@ namespace PictureSharing
             {
                 fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
             }
+            fotolijst.Add(new Foto() {fotoNaam = "naam"});
             control.ItemsSource = fotolijst;
         }
+
+        //Click methods for the buttons and fotoviews
 
         private void btnSettings_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

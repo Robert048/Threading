@@ -25,7 +25,9 @@ namespace PictureSharing
     public sealed partial class UploadPage : Page
     {
         public ObservableCollection<uploadIMG> uploadImages { get; set; }
-        private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client(); 
+        private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+
+        private long userId;
 
         public UploadPage()
         {
@@ -33,6 +35,9 @@ namespace PictureSharing
             
             uploadImages = new ObservableCollection<uploadIMG>();
             uploadStatusListbox.ItemsSource = uploadImages;
+
+            
+            
         }
 
         private async void openBtn_Click(object sender, RoutedEventArgs e)
@@ -83,14 +88,17 @@ namespace PictureSharing
         //Return to the overview
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            Frame.Navigate(typeof(SettingsPage));
         }
 
 
         private async void uploadBtn_Click(object sender, RoutedEventArgs e)
         {
+            List<uploadIMG> requestList = new List<uploadIMG>();
+            requestList = uploadImages.ToList();
+
             //While there are images in the uploadqueue
-            while(uploadImages.Where(i => i.uploadstatus == "Added to queue").Any())
+            while(requestList.Where(i => i.uploadstatus == "Added to queue").Any())
             {
                 //Get the first item in the image list
                 var image = uploadImages.FirstOrDefault(i => i.uploadstatus == "Added to queue");
@@ -107,12 +115,12 @@ namespace PictureSharing
         
         private async Task<string> MakePostRequest(uploadIMG image)
         {
-            long testID = 1;
+            
 
             //Try to upload the image
             try
             {
-                image.uploadstatus = await client.UploadFotoAsync(image.filename, image.imageStream, testID);
+                image.uploadstatus = await client.UploadFotoAsync(image.filename, image.imageStream, userId);
             }
             catch(Exception e)
             {

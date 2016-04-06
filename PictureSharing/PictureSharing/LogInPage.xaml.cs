@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -26,7 +27,7 @@ namespace PictureSharing
 	{
 		private ServiceReference1.Service1Client login = new ServiceReference1.Service1Client();
 		public static ServiceReference1.User user = new ServiceReference1.User();
-        var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         // Initializing the Page.
         public LogInPage()
@@ -43,7 +44,7 @@ namespace PictureSharing
 		{
 			try {
 				user = await login.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
-                User currentUser = new User() { };
+                User currentUser = new User() { gebruikersID = user.GebruikerID, gebruikersNaam = user.GebruikerNaam, gebruikersPW = user.GebruikersPW};
                 localSettings.Values["currentuser"] = currentUser;
                 Frame.Navigate(typeof(MainPage));			
 			}

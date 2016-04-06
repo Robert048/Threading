@@ -27,7 +27,7 @@ namespace PictureSharing
         // gets the list of foto's and set the client
         private List<Foto> fotolijst { get; set; }
         private ServiceReference1.Service1Client client = new Service1Client();
-
+        var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public SettingsPage()
         {
@@ -41,13 +41,10 @@ namespace PictureSharing
         private async void getFotos()
         {
 
-            //get's current user logged in
-            LogInPage page = new LogInPage();
-            var user = page.getUser();
+            try {
+                User user = (User)localSettings.Values["currentuser"];
 
-            // get all foto's by user ID
-            if (user != null)
-            {
+                // get all foto's by user ID           
                 var tempList = await client.GetAllFotosByIdAsync(user.GebruikerID);
 
                 List<Foto> fotolijst = new List<Foto>();
@@ -59,6 +56,11 @@ namespace PictureSharing
                 // bind control with fotolijst
                 control.ItemsSource = fotolijst;
             }
+            catch(Exception ex)
+            {
+
+            }
+            
         }
 
         //go to the uploadpage

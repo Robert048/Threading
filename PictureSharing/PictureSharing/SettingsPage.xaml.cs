@@ -46,7 +46,7 @@ namespace PictureSharing
                 User user = (User)localSettings.Values["currentuser"];
 
                 // get all foto's by user ID           
-                var tempList = await client.GetAllFotosByIdAsync(user.GebruikerID);
+                var tempList = await client.GetAllFotosByIdAsync(user.gebruikersID);
 
                 List<Foto> fotolijst = new List<Foto>();
                 //adds foto's found to the list
@@ -57,9 +57,9 @@ namespace PictureSharing
                 // bind control with fotolijst
                 control.ItemsSource = fotolijst;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-
+                Frame.Navigate(typeof(LogInPage));
             }
             
         }

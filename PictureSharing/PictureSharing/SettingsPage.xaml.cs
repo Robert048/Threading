@@ -39,9 +39,13 @@ namespace PictureSharing
 
         //method to get fotos
         private async void getFotos()
-        {    
+        {
+            //get's current user logged in
+            LogInPage page = new LogInPage();
+            var user = page.getUser();
+     
             // get all foto's by user ID
-            var tempList = await client.GetAllFotosByIdAsync(1);
+            var tempList = await client.GetAllFotosByIdAsync(user.GebruikerID);
 
             List<Foto> fotolijst = new List<Foto>();
             //adds foto's found to the list

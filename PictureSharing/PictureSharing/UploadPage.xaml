@@ -21,15 +21,38 @@
                 </Grid>
             </DataTemplate>
         </Grid.Resources>
-        <Button Click="backBtn_Click" Margin="57,10,0,318">Back</Button>
-        <Button Click="openBtn_Click" Margin="10,66,0,262">Pick images</Button>
-        <Button Click="uploadBtn_Click" Margin="10,211,0,117">Upload</Button>
-        <Button Click="clearBtn_Click" Margin="10,160,0,168">Clear</Button>
-        <ListBox Name="uploadStatusListbox" Margin="153,88,74,168" ItemsSource="{Binding}" ItemTemplate="{StaticResource uploadImage}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="87*"/>
+            <RowDefinition Height="293*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="52*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="162*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="141*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="463*"/>
+            <ColumnDefinition Width="23*"/>
+        </Grid.ColumnDefinitions>
+        <Button Click="backBtn_Click" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF4571F" Foreground="White" Grid.RowSpan="2">Back</Button>
+        <Button Click="openBtn_Click" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF4571F" Foreground="White">Pick images</Button>
+        <Button Click="uploadBtn_Click" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFF4571F" Foreground="White">Upload</Button>
+        <Button Click="clearBtn_Click" Grid.Row="7" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FFF4571F" Foreground="White">Clear</Button>
+        <ListBox Name="uploadStatusListbox" ItemsSource="{Binding}" ItemTemplate="{StaticResource uploadImage}" Grid.Column="3" Grid.RowSpan="12" Grid.Row="1">
             <ListBoxItem ContentTemplate="{Binding UploadIMG}" Width="271">
- 
+
             </ListBoxItem>
         </ListBox>
-        
+
     </Grid>
 </Page>

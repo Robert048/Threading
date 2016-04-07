@@ -45,7 +45,6 @@ namespace PictureSharing
             {
                 Frame.Navigate(typeof(LogInPage));
             }
-
         }
 
         private async void openBtn_Click(object sender, RoutedEventArgs e)
@@ -61,7 +60,6 @@ namespace PictureSharing
             
             //We have to wait until the user has decided which images he wants to upload, if any
             IReadOnlyList<StorageFile> filelist = await openPicker.PickMultipleFilesAsync();
-
 
             foreach (var file in filelist)
             {
@@ -98,7 +96,6 @@ namespace PictureSharing
         {
             Frame.Navigate(typeof(SettingsPage));
         }
-
 
         private async void uploadBtn_Click(object sender, RoutedEventArgs e)
         {

@@ -20,31 +20,45 @@ namespace PictureSharing
 
         /// <summary>
         /// Method to get the foto's from service for the mainpage
+        /// connects with service to get fotos, loops thru and adds fotos to the fotolist. after loop it adds the list to the itemsource of the itemcontrol
         /// </summary>
         private async void getFotos()
         {
-            var tempList = await client.GetAllFotosAsync();
+            var fotoServicesList = await client.GetAllFotosAsync();
             fotolijst = new List<Foto>();
-            foreach (var item in tempList)
+            foreach (var foto in fotoServicesList)
             {
-                fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
+                fotolijst.Add(new Foto() { fotoID = foto.FotoID, fotoNaam = foto.FotoNaam, gebruikersID = foto.GebruikerID, path = foto.Path });
             }
             fotolijst.Add(new Foto() {fotoNaam = "naam"});
             control.ItemsSource = fotolijst;
         }
 
-        //Click methods for the buttons and fotoviews
-
+        /// <summary>
+        /// Method for the settings button. Goes to the SettingsPage
+        /// </summary>
+        /// <param name="sender">button object</param>
+        /// <param name="e"></param>
         private void btnSettings_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Frame.Navigate(typeof(SettingsPage));
         }
 
+        /// <summary>
+        /// Method for the refresh button. Calls getFotos() to refresh the fotolist.
+        /// </summary>
+        /// <param name="sender">button object</param>
+        /// <param name="e"></param>
         private void btnRefresh_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             getFotos();
         }
 
+        /// <summary>
+        /// Click method for the individual foto's. Gets selected foto and send it to FotoPage and goes to Fotopage.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void templateClick(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
             Foto selectedFoto = (Foto)control.SelectedItem;

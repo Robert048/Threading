@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -12,15 +7,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using PictureSharing.ServiceReference1;
 using Windows.Storage;
 using PictureSharing.WebServiceReference;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace PictureSharing
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// Settingspage to adjust the settings of the app
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
@@ -28,7 +23,7 @@ namespace PictureSharing
         // gets the list of foto's and set the client
         private List<Foto> fotolijst { get; set; }
         private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
-        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         public SettingsPage()
         {
@@ -38,21 +33,22 @@ namespace PictureSharing
             getFotos();
         }
 
-        //method to get fotos
+        /// <summary>
+        /// method to get fotos
+        /// </summary>
         private async void getFotos()
         {
-
             try {
                 long userID = (long)localSettings.Values["currentUser"];
 
                 // get all foto's by user ID           
-                var tempList = await client.GetAllFotosByIdAsync(userID);
+                var fotoServicesList = await client.GetAllFotosByIdAsync(userID);
 
                 List<Foto> fotolijst = new List<Foto>();
                 //adds foto's found to the list
-                foreach (var item in tempList)
+                foreach (var foto in fotoServicesList)
                 {
-                    fotolijst.Add(new Foto() { fotoID = item.FotoID, fotoNaam = item.FotoNaam, gebruikersID = item.GebruikerID, path = item.Path });
+                    fotolijst.Add(new Foto() { fotoID = foto.FotoID, fotoNaam = foto.FotoNaam, gebruikersID = foto.GebruikerID, path = foto.Path });
                 }
                 // bind control with fotolijst
                 control.ItemsSource = fotolijst;
@@ -61,25 +57,38 @@ namespace PictureSharing
             {
                 Frame.Navigate(typeof(LogInPage));
             }
-            
         }
 
-        //go to the uploadpage
-        private void btnSettings_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(UploadPage));
-        }
-
-        // go to the mainpage
-        private void btnRefresh_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MainPage));
-        }
+        /// <summary>
+        /// Method for the delete button, deletes the foto and reloads the list.
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
         private async void button_Click(object sender, RoutedEventArgs e)
         {
             var myValue = (long)((Button)sender).Tag;
             await client.DeleteFotoAsync(myValue);
             getFotos();
-        }  
+        }
+
+        /// <summary>
+        /// Method for the upload button, goes to the upload page.
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
+        private void btnUpload_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UploadPage));
+        }
+
+        /// <summary>
+        /// Method for the back button, goes to the mainpage
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
     }
 }

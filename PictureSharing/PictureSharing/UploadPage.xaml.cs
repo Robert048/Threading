@@ -3,14 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.Storage;
+using Windows.Storage.FileProperties;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace PictureSharing
 {
@@ -19,7 +24,7 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class UploadPage : Page
     {
-        public ObservableCollection<uploadIMG> uploadImages { get; set; }
+        private ObservableCollection<uploadIMG> uploadImages { get; set; }
         private Service1Client client = new Service1Client();
         ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         private long userId;
@@ -29,7 +34,7 @@ namespace PictureSharing
             this.InitializeComponent();
             uploadImages = new ObservableCollection<uploadIMG>();
             uploadStatusListbox.ItemsSource = uploadImages;
-
+            
             try
             {
                 long currentUserID = (long)localSettings.Values["currentUser"];
@@ -38,7 +43,7 @@ namespace PictureSharing
             catch(Exception)
             {
                 Frame.Navigate(typeof(LogInPage));
-            }
+            } 
         }
 
         /// <summary>
@@ -83,6 +88,8 @@ namespace PictureSharing
             }
         }
 
+        
+
         /// <summary>
         /// Method for the clear button, Clears the screen and cancels all uploads that havent started yet
         /// </summary>
@@ -108,7 +115,7 @@ namespace PictureSharing
         /// </summary>
         /// <param name="sender">Button object</param>
         /// <param name="e"></param>
-        private async void uploadBtn_Click(object sender, RoutedEventArgs e)
+        private void uploadBtn_Click(object sender, RoutedEventArgs e)
         {
             List<uploadIMG> requestList = new List<uploadIMG>();
             requestList = uploadImages.ToList();
@@ -116,15 +123,15 @@ namespace PictureSharing
             //While there are images in the uploadqueue
             while(requestList.Where(i => i.uploadstatus == "Added to queue").Any())
             {
+                
                 //Get the first item in the image list
                 var image = uploadImages.FirstOrDefault(i => i.uploadstatus == "Added to queue");
                 if (image != null)
                 {
-                    //Change the status of the image
                     image.uploadstatus = "Uploading...";
 
-                    //and start the upload request
-                    image.uploadstatus = await MakePostRequest(image);
+                    //Start the task
+                    MakePostRequest(image);
                 }
             }
         }
@@ -134,8 +141,12 @@ namespace PictureSharing
         /// </summary>
         /// <param name="image"></param>
         /// <returns></returns>
-        private async Task<string> MakePostRequest(uploadIMG image)
+        private async void MakePostRequest(uploadIMG image)
         {
+            
+#if DEBUG
+            Debug.WriteLine(image.filename + " has started");
+#endif
             //Try to upload the image
             try
             {
@@ -146,8 +157,11 @@ namespace PictureSharing
                 //Upload has failed, we want to know why
                 image.uploadstatus = e.Message;
             }
-            return (image.uploadstatus);
+#if DEBUG
+            Debug.WriteLine(image.filename + " is done");
+#endif
         }
+
 
         /// <summary>
         /// converts a Windows RandomAccessStream to a byte array 
@@ -167,7 +181,7 @@ namespace PictureSharing
     /// <summary>
     /// The item used to display all the chosen images and their statuses
     /// </summary>
-    public class uploadIMG : INotifyPropertyChanged
+    internal class uploadIMG : INotifyPropertyChanged
     {
         private string _uploadstatus;
         public string uploadstatus
@@ -178,7 +192,7 @@ namespace PictureSharing
                     OnPropertyChanged("uploadstatus");
                 }
         }
-
+        
         public byte[] imageStream { get; set; }
         
         public string filename { get; set; }

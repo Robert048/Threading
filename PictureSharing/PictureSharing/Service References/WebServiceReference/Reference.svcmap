@@ -21,14 +21,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:39046/Service1.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:39046/ThreadingWebService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="386bfa8d-9c92-4fe0-8c44-f3cfce129a67" SourceId="1" SourceUrl="http://localhost:39046/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="ed996845-1ce5-4748-aa27-f7b5e9f381eb" SourceId="1" SourceUrl="http://localhost:39046/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="3a8784b6-630f-4b5e-9ced-df95e2b1f09d" SourceId="1" SourceUrl="http://localhost:39046/Service1.svc?xsd=xsd0" />
-    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="84f7bcc0-8328-4fcb-a7b8-8fb5776e41b4" SourceId="1" SourceUrl="http://localhost:39046/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service1.disco" MetadataType="Disco" ID="89778292-28ab-4d45-9013-9d9878a86ac9" SourceId="1" SourceUrl="http://localhost:39046/Service1.svc?disco" />
+    <MetadataFile FileName="ThreadingWebService.wsdl" MetadataType="Wsdl" ID="2c0bccd5-18b4-49c2-93fb-7e7b75bd80ab" SourceId="1" SourceUrl="http://localhost:39046/ThreadingWebService.svc?wsdl" />
+    <MetadataFile FileName="ThreadingWebService.xsd" MetadataType="Schema" ID="4215e6bb-2fe4-402c-835c-0c8541b738b2" SourceId="1" SourceUrl="http://localhost:39046/ThreadingWebService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ThreadingWebService1.xsd" MetadataType="Schema" ID="9bbd5646-31cd-4ca9-b7f1-12a8b40d60e4" SourceId="1" SourceUrl="http://localhost:39046/ThreadingWebService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ThreadingWebService2.xsd" MetadataType="Schema" ID="ad65f98b-64bd-4873-9fc4-23ec5785df52" SourceId="1" SourceUrl="http://localhost:39046/ThreadingWebService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ThreadingWebService.disco" MetadataType="Disco" ID="b6730fbf-911c-4876-9b3e-faafaebc4c56" SourceId="1" SourceUrl="http://localhost:39046/ThreadingWebService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

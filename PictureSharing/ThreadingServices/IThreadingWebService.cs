@@ -10,7 +10,7 @@ using System.Text;
 namespace ThreadingServices
 {
     [ServiceContract]
-    public interface IService1
+    public interface IThreadingWebService
     {
         [OperationContract]
         string GetGebruikersNaam(long gebrID);
@@ -30,8 +30,8 @@ namespace ThreadingServices
         [OperationContract]
         User GetGebruiker(long gebrID);
 
-				[OperationContract]
-				bool GetGebruikerByName(String gebruikersnaam);
+		[OperationContract]
+		bool GetGebruikerByName(String gebruikersnaam);
 
         [OperationContract]
         List<User> GetAllGebruikers();

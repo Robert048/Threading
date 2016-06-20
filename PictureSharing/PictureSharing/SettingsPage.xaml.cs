@@ -12,8 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using PictureSharing.ServiceReference1;
 using Windows.Storage;
+using PictureSharing.WebServiceReference;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,7 +27,7 @@ namespace PictureSharing
 
         // gets the list of foto's and set the client
         private List<Foto> fotolijst { get; set; }
-        private ServiceReference1.Service1Client client = new Service1Client();
+        private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public SettingsPage()

@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using PictureSharing.WebServiceReference;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,7 +26,7 @@ namespace PictureSharing
     public sealed partial class UploadPage : Page
     {
         public ObservableCollection<uploadIMG> uploadImages { get; set; }
-        private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+        private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private long userId;
 

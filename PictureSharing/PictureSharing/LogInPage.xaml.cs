@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using PictureSharing.WebServiceReference;
 
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,8 +26,8 @@ namespace PictureSharing
 	/// </summary>
 	public sealed partial class LogInPage : Page
 	{
-		private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-		public static ServiceReference1.User user = new ServiceReference1.User();
+		private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
+		public static WebServiceReference.User user = new WebServiceReference.User();
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         // Initializing the Page.

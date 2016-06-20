@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using PictureSharing.WebServiceReference;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,7 +27,7 @@ namespace PictureSharing
 		/// <summary>
 		/// Creates Service Client
 		/// </summary>
-		private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
+		private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
 
 		/// <summary>
 		/// Initializes Page
@@ -58,7 +59,7 @@ namespace PictureSharing
 
 				if (!check)
 				{
-					ServiceReference1.User newUser = new ServiceReference1.User();
+					WebServiceReference.User newUser = new WebServiceReference.User();
 					newUser.GebruikerNaam = usernametxt.Text;
 					newUser.GebruikersPW = passwordtxt.Password;
 

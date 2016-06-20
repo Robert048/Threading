@@ -1,6 +1,6 @@
-﻿using PictureSharing.ServiceReference1;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using PictureSharing.WebServiceReference;
 
 namespace PictureSharing
 {
@@ -10,7 +10,7 @@ namespace PictureSharing
     public sealed partial class MainPage : Page
     {
         private List<Foto> fotolijst { get; set; }
-        private ServiceReference1.Service1Client client = new Service1Client();
+        private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
 
         public MainPage()
         {

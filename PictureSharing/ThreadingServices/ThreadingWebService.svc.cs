@@ -11,7 +11,7 @@ using System.Web.Script;
 
 namespace ThreadingServices
 {
-	public class Service1 : IService1
+	public class ThreadingWebService : IThreadingWebService
 	{
 		// Haal de gebruikersnaam op uit de database
 		public string GetGebruikersNaam(long gebrID)

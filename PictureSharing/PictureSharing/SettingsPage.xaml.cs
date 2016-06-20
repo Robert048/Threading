@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using PictureSharing.ServiceReference1;
 using Windows.Storage;
 using PictureSharing.WebServiceReference;
 
@@ -21,37 +15,37 @@ namespace PictureSharing
     {
 
         // gets the list of foto's and set the client
-        private List<Foto> fotolijst { get; set; }
-        private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
-        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+        private List<Foto> Fotolijst { get; set; }
+        private ThreadingWebServiceClient _client = new ThreadingWebServiceClient();
+        ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
 
         public SettingsPage()
         {
             this.InitializeComponent();
 
             // load page with fotos
-            getFotos();
+            GetFotos();
         }
 
         /// <summary>
         /// method to get fotos
         /// </summary>
-        private async void getFotos()
+        private async void GetFotos()
         {
             try {
-                long userID = (long)localSettings.Values["currentUser"];
+                long userId = (long)_localSettings.Values["currentUser"];
 
                 // get all foto's by user ID           
-                var fotoServicesList = await client.GetAllFotosByIdAsync(userID);
+                var fotoServicesList = await _client.GetAllFotosByIdAsync(userId);
 
-                List<Foto> fotolijst = new List<Foto>();
+                Fotolijst = new List<Foto>();
                 //adds foto's found to the list
                 foreach (var foto in fotoServicesList)
                 {
-                    fotolijst.Add(new Foto() { fotoID = foto.FotoID, fotoNaam = foto.FotoNaam, gebruikersID = foto.GebruikerID, path = foto.Path });
+                    Fotolijst.Add(new Foto() { fotoID = foto.FotoID, fotoNaam = foto.FotoNaam, gebruikersID = foto.GebruikerID, path = foto.Path });
                 }
                 // bind control with fotolijst
-                control.ItemsSource = fotolijst;
+                control.ItemsSource = Fotolijst;
             }
             catch(Exception)
             {
@@ -67,8 +61,8 @@ namespace PictureSharing
         private async void button_Click(object sender, RoutedEventArgs e)
         {
             var myValue = (long)((Button)sender).Tag;
-            await client.DeleteFotoAsync(myValue);
-            getFotos();
+            await _client.DeleteFotoAsync(myValue);
+            GetFotos();
         }
 
         /// <summary>

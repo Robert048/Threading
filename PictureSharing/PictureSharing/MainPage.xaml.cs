@@ -20,6 +20,7 @@ namespace PictureSharing
 
         /// <summary>
         /// Method to get the foto's from service for the mainpage
+        /// connects with service to get fotos, loops thru and adds fotos to the fotolist. after loop it adds the list to the itemsource of the itemcontrol
         /// </summary>
         private async void getFotos()
         {

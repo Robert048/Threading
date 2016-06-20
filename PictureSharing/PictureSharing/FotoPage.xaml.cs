@@ -1,5 +1,4 @@
 ﻿using System;
-using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -8,7 +7,7 @@ using Windows.UI.Xaml.Navigation;
 namespace PictureSharing
 {
     /// <summary>
-    /// Foto object weergave
+    /// The Foto page. It shows a single foto.
     /// </summary>
     public sealed partial class FotoPage : Page
     {
@@ -19,7 +18,7 @@ namespace PictureSharing
         }
 
         /// <summary>
-        /// Ontvang een Foto object en plaats deze in de DataContext
+        /// Gets the Foto object if there is navigated to this page from the mainpage.
         /// </summary>
         /// <param name="e"></param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -30,15 +29,16 @@ namespace PictureSharing
             }
             else
             {
-                // Ongeldig argument // terug naar overzicht 
+                // invalid argument and goes back to mainpage
                 ShowDialog(noImage);
                 Frame.Navigate(typeof(MainPage));
             }
         }
 
         /// <summary>
-        /// Toon bericht als er geen afbeeling object is ontvangen
+        /// Show the message in a dialogbox
         /// </summary>
+        /// <param name="message">The message to display</param>
         private async void ShowDialog(String message)
         {
             MessageDialog dialog = new MessageDialog(message);
@@ -46,9 +46,9 @@ namespace PictureSharing
         }
 
         /// <summary>
-        /// Terug naar pagina 
+        /// Method for back button. back to previouspage, which is mainpage.
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender">button objeccct</param>
         /// <param name="e"></param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {

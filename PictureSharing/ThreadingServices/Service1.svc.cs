@@ -2,16 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using System.Web.Hosting;
-using System.Web.Script;
 
 namespace ThreadingServices
 {
-	public class Service1 : IService1
+    public class Service1 : IService1
 	{
 		// Haal de gebruikersnaam op uit de database
 		public string GetGebruikersNaam(long gebrID)

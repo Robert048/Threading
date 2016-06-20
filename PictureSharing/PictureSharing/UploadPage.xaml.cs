@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PictureSharing.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -6,33 +7,26 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace PictureSharing
 {
+    /// <summary>
+    /// Upload page to upload new images
+    /// </summary>
     public sealed partial class UploadPage : Page
     {
         public ObservableCollection<uploadIMG> uploadImages { get; set; }
-        private ServiceReference1.Service1Client client = new ServiceReference1.Service1Client();
-        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        private Service1Client client = new Service1Client();
+        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         private long userId;
 
         public UploadPage()
         {
             this.InitializeComponent();
-            
             uploadImages = new ObservableCollection<uploadIMG>();
             uploadStatusListbox.ItemsSource = uploadImages;
 
@@ -47,6 +41,11 @@ namespace PictureSharing
             }
         }
 
+        /// <summary>
+        /// Method for the open button, to open filepicker
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
         private async void openBtn_Click(object sender, RoutedEventArgs e)
         {
             //Create a filepicker
@@ -80,23 +79,35 @@ namespace PictureSharing
                 }
                 
                 newImage.filename = file.Name;
-
                 uploadImages.Add(newImage);
             }
         }
 
-        //Clear the screen and cancels all uploads that havent started yet
+        /// <summary>
+        /// Method for the clear button, Clears the screen and cancels all uploads that havent started yet
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
             uploadImages.Clear();
         }
 
-        //Return to the overview
+        /// <summary>
+        /// Method for the back button, Returns to the settingspage
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
         private void backBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(SettingsPage));
         }
 
+        /// <summary>
+        /// Method for the upload button. uploads the image
+        /// </summary>
+        /// <param name="sender">Button object</param>
+        /// <param name="e"></param>
         private async void uploadBtn_Click(object sender, RoutedEventArgs e)
         {
             List<uploadIMG> requestList = new List<uploadIMG>();
@@ -118,9 +129,13 @@ namespace PictureSharing
             }
         }
         
+        /// <summary>
+        /// Method to upload the image with the service
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
         private async Task<string> MakePostRequest(uploadIMG image)
         {
-            
             //Try to upload the image
             try
             {
@@ -131,14 +146,14 @@ namespace PictureSharing
                 //Upload has failed, we want to know why
                 image.uploadstatus = e.Message;
             }
-
-
             return (image.uploadstatus);
         }
 
-
-
-        //converts a Windows RandomAccessStream to a byte array 
+        /// <summary>
+        /// converts a Windows RandomAccessStream to a byte array 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static byte[] ReadFully(Stream input)
         {
             using (MemoryStream ms = new MemoryStream())
@@ -149,7 +164,9 @@ namespace PictureSharing
         }      
     }
 
-    //The item used to display all the chosen images and their statuses
+    /// <summary>
+    /// The item used to display all the chosen images and their statuses
+    /// </summary>
     public class uploadIMG : INotifyPropertyChanged
     {
         private string _uploadstatus;

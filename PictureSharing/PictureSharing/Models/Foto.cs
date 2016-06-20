@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PictureSharing
+﻿namespace PictureSharing
 {
+    /// <summary>
+    /// Model for the foto
+    /// </summary>
     class Foto
     {
         public long fotoID { get; set; }

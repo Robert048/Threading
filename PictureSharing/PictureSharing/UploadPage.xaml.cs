@@ -24,21 +24,21 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class UploadPage : Page
     {
-        public ObservableCollection<uploadIMG> uploadImages { get; set; }
-        private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
-        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
-        private long userId;
+        private ObservableCollection<UploadImg> UploadImages { get; set; }
+        private ThreadingWebServiceClient _client = new ThreadingWebServiceClient();
+        private ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
+        private long _userId;
 
         public UploadPage()
         {
             this.InitializeComponent();
-            uploadImages = new ObservableCollection<uploadIMG>();
-            uploadStatusListbox.ItemsSource = uploadImages;
+            UploadImages = new ObservableCollection<UploadImg>();
+            uploadStatusListbox.ItemsSource = UploadImages;
             
             try
             {
-                long currentUserID = (long)localSettings.Values["currentUser"];
-                userId = currentUserID;
+                long currentUserId = (long)_localSettings.Values["currentUser"];
+                _userId = currentUserId;
             }
             catch(Exception)
             {
@@ -70,21 +70,21 @@ namespace PictureSharing
                 var randomAccessStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
                 Stream managedStream = randomAccessStream.AsStream();
-                var newImage = new uploadIMG();
+                var newImage = new UploadImg();
                 
                 //Check if the image size is less than 1 MB
                 if(managedStream.Length > 1048576)
                 {
-                    newImage.uploadstatus = "Image exceeds sizelimit";
+                    newImage.Uploadstatus = "Image exceeds sizelimit";
                 }
                 else
                 {
-                    newImage.imageStream = ReadFully(managedStream);
-                    newImage.uploadstatus = "Added to queue";
+                    newImage.ImageStream = ReadFully(managedStream);
+                    newImage.Uploadstatus = "Added to queue";
                 }
                 
-                newImage.filename = file.Name;
-                uploadImages.Add(newImage);
+                newImage.Filename = file.Name;
+                UploadImages.Add(newImage);
             }
         }
 
@@ -97,7 +97,7 @@ namespace PictureSharing
         /// <param name="e"></param>
         private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
-            uploadImages.Clear();
+            UploadImages.Clear();
         }
 
         /// <summary>
@@ -117,18 +117,17 @@ namespace PictureSharing
         /// <param name="e"></param>
         private void uploadBtn_Click(object sender, RoutedEventArgs e)
         {
-            List<uploadIMG> requestList = new List<uploadIMG>();
-            requestList = uploadImages.ToList();
+            List<UploadImg> requestList = UploadImages.ToList();
 
             //While there are images in the uploadqueue
-            while(requestList.Where(i => i.uploadstatus == "Added to queue").Any())
+            while(requestList.Any(i => i.Uploadstatus == "Added to queue"))
             {
                 
                 //Get the first item in the image list
-                var image = uploadImages.FirstOrDefault(i => i.uploadstatus == "Added to queue");
+                var image = UploadImages.FirstOrDefault(i => i.Uploadstatus == "Added to queue");
                 if (image != null)
                 {
-                    image.uploadstatus = "Uploading...";
+                    image.Uploadstatus = "Uploading...";
 
                     //Start the task
                     MakePostRequest(image);
@@ -141,24 +140,24 @@ namespace PictureSharing
         /// </summary>
         /// <param name="image"></param>
         /// <returns></returns>
-        private async void MakePostRequest(uploadIMG image)
+        private async void MakePostRequest(UploadImg image)
         {
             
 #if DEBUG
-            Debug.WriteLine(image.filename + " has started");
+            Debug.WriteLine(image.Filename + " has started");
 #endif
             //Try to upload the image
             try
             {
-                image.uploadstatus = await client.UploadFotoAsync(image.filename, image.imageStream, userId);
+                image.Uploadstatus = await _client.UploadFotoAsync(image.Filename, image.ImageStream, _userId);
             }
             catch(Exception e)
             {
                 //Upload has failed, we want to know why
-                image.uploadstatus = e.Message;
+                image.Uploadstatus = e.Message;
             }
 #if DEBUG
-            Debug.WriteLine(image.filename + " is done");
+            Debug.WriteLine(image.Filename + " is done");
 #endif
         }
 
@@ -181,10 +180,10 @@ namespace PictureSharing
     /// <summary>
     /// The item used to display all the chosen images and their statuses
     /// </summary>
-    internal class uploadIMG : INotifyPropertyChanged
+    internal class UploadImg : INotifyPropertyChanged
     {
         private string _uploadstatus;
-        public string uploadstatus
+        public string Uploadstatus
         {
             get { return _uploadstatus; }
             set {
@@ -193,16 +192,15 @@ namespace PictureSharing
                 }
         }
         
-        public byte[] imageStream { get; set; }
+        public byte[] ImageStream { get; set; }
         
-        public string filename { get; set; }
+        public string Filename { get; set; }
 
         //An interface with a propertyeventhandler had to be added to be able to see the changes immediatly
         public event PropertyChangedEventHandler PropertyChanged;
         private void OnPropertyChanged(string property)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
     }
 }

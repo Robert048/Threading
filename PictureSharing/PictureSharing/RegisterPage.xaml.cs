@@ -36,10 +36,10 @@ namespace PictureSharing
 			{
 				bool check = false;
 
-				var gebruikers = await client.GetAllGebruikersAsync();
-				foreach (var user in gebruikers)
+				var users = await client.GetAllUsersAsync();
+				foreach (var user in users)
 				{
-					if (usernametxt.Text == user.GebruikerNaam)
+					if (usernametxt.Text == user.Username)
 					{
 						check = true;
 					}
@@ -48,10 +48,10 @@ namespace PictureSharing
 				if (!check)
 				{
 					WebServiceReference.User newUser = new WebServiceReference.User();
-					newUser.GebruikerNaam = usernametxt.Text;
-					newUser.GebruikersPW = passwordtxt.Password;
+					newUser.Username = usernametxt.Text;
+					newUser.Password = passwordtxt.Password;
 
-					await client.AddGebruikerAsync(newUser);
+					await client.AddUserAsync(newUser);
 
 					var dialogCreated = new MessageDialog("User: " + usernametxt.Text + " successfully created");
 					await dialogCreated.ShowAsync();

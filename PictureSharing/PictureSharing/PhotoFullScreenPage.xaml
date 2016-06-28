@@ -1,24 +1,28 @@
 ﻿<Page
-    x:Class="PictureSharing.FotoPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PictureSharing"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="using:PictureSharing.Converter"
+    x:Class="PictureSharing.PhotoFullScreenPage"
     mc:Ignorable="d">
-    <!-- Gebruik Foto als DataContext -->
+    <Page.Resources>
+        <Converter:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Page.Resources>
+    <!-- Use LocalPhoto as DataContext -->
     <Page.DataContext>
-        <local:Foto/>
+        <local:LocalPhoto/>
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+
         <StackPanel>
             <StackPanel Padding="20" Orientation="Horizontal">
                 <Button x:Name="btnBack" Content="Terug" Margin="0 0 0 0" Click="btnBack_Click"/>
-                <TextBlock TextWrapping="Wrap" Margin="20, 0, 0, 0" Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding fotoNaam}"/>
+                <TextBlock TextWrapping="Wrap" Margin="20, 0, 0, 0" Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding Name}"/>
             </StackPanel>
-            <Image x:Name="image" Height="auto" Width="auto" Source="{Binding path}" Stretch="Fill"/>
+            <Image x:Name="image" Height="auto" Width="auto" Stretch="Fill" Source="{Binding ImageData, Converter={StaticResource ByteArrayToImageConverter}}"/>
         </StackPanel>
 
     </Grid>

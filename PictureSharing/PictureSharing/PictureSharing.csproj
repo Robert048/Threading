@@ -92,7 +92,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\WebServiceReference\PictureSharing.WebServiceReference.Foto.datasource">
+    <None Include="Service References\WebServiceReference\PictureSharing.WebServiceReference.Photo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\WebServiceReference\PictureSharing.WebServiceReference.User.datasource">
@@ -122,9 +122,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Foto.cs" />
-    <Compile Include="FotoPage.xaml.cs">
-      <DependentUpon>FotoPage.xaml</DependentUpon>
+    <Compile Include="Converter\ByteArrayToImageConverter.cs" />
+    <Compile Include="Models\LocalPhoto.cs" />
+    <Compile Include="PhotoFullScreenPage.xaml.cs">
+      <DependentUpon>PhotoFullScreenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
@@ -171,7 +172,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="FotoPage.xaml">
+    <Page Include="PhotoFullScreenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

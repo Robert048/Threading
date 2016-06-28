@@ -15,7 +15,7 @@ namespace PictureSharing
     {
 
         // gets the list of foto's and set the client
-        private List<Foto> Fotolijst { get; set; }
+        private List<LocalPhoto> PhotoList { get; set; }
         private ThreadingWebServiceClient _client = new ThreadingWebServiceClient();
         ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
 
@@ -24,28 +24,35 @@ namespace PictureSharing
             this.InitializeComponent();
 
             // load page with fotos
-            GetFotos();
+            GetPhotosFromService();
         }
 
         /// <summary>
         /// method to get fotos
         /// </summary>
-        private async void GetFotos()
+        private async void GetPhotosFromService()
         {
             try {
                 long userId = (long)_localSettings.Values["currentUser"];
 
                 // get all foto's by user ID           
-                var fotoServicesList = await _client.GetAllFotosByIdAsync(userId);
+                var photoServicesList = await _client.GetAllPhotosFromUserAsync(userId);
 
-                Fotolijst = new List<Foto>();
+                PhotoList = new List<LocalPhoto>();
                 //adds foto's found to the list
-                foreach (var foto in fotoServicesList)
+                foreach (var servicePhoto in photoServicesList)
                 {
-                    Fotolijst.Add(new Foto() { fotoID = foto.FotoID, fotoNaam = foto.FotoNaam, gebruikersID = foto.GebruikerID, path = foto.Path });
+                    PhotoList.Add(new LocalPhoto()
+                    {
+                        Id = servicePhoto.PhotoId,
+                        Name = servicePhoto.PhotoName,
+                        UserId = servicePhoto.UserId,
+                        Path = servicePhoto.Path,
+                        ImageData = servicePhoto.ImageData
+                    });
                 }
                 // bind control with fotolijst
-                control.ItemsSource = Fotolijst;
+                control.ItemsSource = PhotoList;
             }
             catch(Exception)
             {
@@ -61,8 +68,8 @@ namespace PictureSharing
         private async void button_Click(object sender, RoutedEventArgs e)
         {
             var myValue = (long)((Button)sender).Tag;
-            await _client.DeleteFotoAsync(myValue);
-            GetFotos();
+            await _client.DeletePhotoAsync(myValue);
+            GetPhotosFromService();
         }
 
         /// <summary>

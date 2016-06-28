@@ -113,7 +113,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Foto.cs">
+    <Compile Include="Photo.cs">
       <DependentUpon>Threading.tt</DependentUpon>
     </Compile>
     <Compile Include="ThreadingWebService.svc.cs">

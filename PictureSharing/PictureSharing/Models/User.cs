@@ -5,8 +5,8 @@
     /// </summary>
     class User
 	{
-		public long gebruikersID { get; set; }
-		public string gebruikersNaam { get; set; }
-		public string gebruikersPW { get; set; }
+		public long Id { get; set; }
+		public string Name { get; set; }
+		public string Password { get; set; }
 	}
 }

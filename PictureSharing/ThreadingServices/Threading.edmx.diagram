@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="320eb1de96674e8b8e5f034406231d36" Name="Diagram1">
-        <EntityTypeShape EntityType="ThreadingModel.Foto" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ThreadingModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ThreadingModel.Photo" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ThreadingModel.User" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

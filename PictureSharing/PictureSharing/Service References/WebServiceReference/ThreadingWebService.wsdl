@@ -7,212 +7,212 @@
       <xsd:import schemaLocation="http://localhost:39046/ThreadingWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ThreadingServices" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IThreadingWebService_GetGebruikersNaam_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikersNaam" />
+  <wsdl:message name="IThreadingWebService_GetUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsername" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikersNaam_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikersNaamResponse" />
+  <wsdl:message name="IThreadingWebService_GetUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsernameResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikersPW_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikersPW" />
+  <wsdl:message name="IThreadingWebService_GetUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPassword" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikersPW_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikersPWResponse" />
+  <wsdl:message name="IThreadingWebService_GetUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPasswordResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetGebruikersNaam_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetGebruikersNaam" />
+  <wsdl:message name="IThreadingWebService_SetUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUsername" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetGebruikersNaam_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetGebruikersNaamResponse" />
+  <wsdl:message name="IThreadingWebService_SetUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUsernameResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetGebruikersPW_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetGebruikersPW" />
+  <wsdl:message name="IThreadingWebService_SetUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserPassword" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetGebruikersPW_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetGebruikersPWResponse" />
+  <wsdl:message name="IThreadingWebService_SetUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserPasswordResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_AddGebruiker_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddGebruiker" />
+  <wsdl:message name="IThreadingWebService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_AddGebruiker_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddGebruikerResponse" />
+  <wsdl:message name="IThreadingWebService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruiker_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruiker" />
+  <wsdl:message name="IThreadingWebService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruiker_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikerResponse" />
+  <wsdl:message name="IThreadingWebService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikerByName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikerByName" />
+  <wsdl:message name="IThreadingWebService_GetUserByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByName" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikerByName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikerByNameResponse" />
+  <wsdl:message name="IThreadingWebService_GetUserByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetAllGebruikers_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllGebruikers" />
+  <wsdl:message name="IThreadingWebService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetAllGebruikers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllGebruikersResponse" />
+  <wsdl:message name="IThreadingWebService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_InlogMethode_InputMessage">
-    <wsdl:part name="parameters" element="tns:InlogMethode" />
+  <wsdl:message name="IThreadingWebService_EnterCredentials_InputMessage">
+    <wsdl:part name="parameters" element="tns:EnterCredentials" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_InlogMethode_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InlogMethodeResponse" />
+  <wsdl:message name="IThreadingWebService_EnterCredentials_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EnterCredentialsResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_UploadFoto_InputMessage">
-    <wsdl:part name="parameters" element="tns:UploadFoto" />
+  <wsdl:message name="IThreadingWebService_UploadPhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadPhoto" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_UploadFoto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UploadFotoResponse" />
+  <wsdl:message name="IThreadingWebService_UploadPhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadPhotoResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetFotoNaam_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetFotoNaam" />
+  <wsdl:message name="IThreadingWebService_GetPhotoName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoName" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetFotoNaam_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetFotoNaamResponse" />
+  <wsdl:message name="IThreadingWebService_GetPhotoName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetFotoPath_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetFotoPath" />
+  <wsdl:message name="IThreadingWebService_GetPhotoPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoPath" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetFotoPath_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetFotoPathResponse" />
+  <wsdl:message name="IThreadingWebService_GetPhotoPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoPathResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetAllFotos_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllFotos" />
+  <wsdl:message name="IThreadingWebService_GetAllPhotos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPhotos" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetAllFotos_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllFotosResponse" />
+  <wsdl:message name="IThreadingWebService_GetAllPhotos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPhotosResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetFotoPath_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetFotoPath" />
+  <wsdl:message name="IThreadingWebService_SetPhotoPath_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPhotoPath" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetFotoPath_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetFotoPathResponse" />
+  <wsdl:message name="IThreadingWebService_SetPhotoPath_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPhotoPathResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetFotoNaam_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetFotoNaam" />
+  <wsdl:message name="IThreadingWebService_SetPhotoName_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetPhotoName" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_SetFotoNaam_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetFotoNaamResponse" />
+  <wsdl:message name="IThreadingWebService_SetPhotoName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetPhotoNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_AddFoto_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddFoto" />
+  <wsdl:message name="IThreadingWebService_AddPhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPhoto" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_AddFoto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddFotoResponse" />
+  <wsdl:message name="IThreadingWebService_AddPhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPhotoResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikerID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikerID" />
+  <wsdl:message name="IThreadingWebService_GetUserByPhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByPhoto" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetGebruikerID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetGebruikerIDResponse" />
+  <wsdl:message name="IThreadingWebService_GetUserByPhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByPhotoResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetFotoByGebruiker_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetFotoByGebruiker" />
+  <wsdl:message name="IThreadingWebService_GetPhotoByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoByUser" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetFotoByGebruiker_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetFotoByGebruikerResponse" />
+  <wsdl:message name="IThreadingWebService_GetPhotoByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPhotoByUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_DeleteFoto_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteFoto" />
+  <wsdl:message name="IThreadingWebService_DeletePhoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhoto" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_DeleteFoto_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteFotoResponse" />
+  <wsdl:message name="IThreadingWebService_DeletePhoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePhotoResponse" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetAllFotosById_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllFotosById" />
+  <wsdl:message name="IThreadingWebService_GetAllPhotosFromUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPhotosFromUser" />
   </wsdl:message>
-  <wsdl:message name="IThreadingWebService_GetAllFotosById_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllFotosByIdResponse" />
+  <wsdl:message name="IThreadingWebService_GetAllPhotosFromUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPhotosFromUserResponse" />
   </wsdl:message>
   <wsdl:portType name="IThreadingWebService">
-    <wsdl:operation name="GetGebruikersNaam">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikersNaam" message="tns:IThreadingWebService_GetGebruikersNaam_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikersNaamResponse" message="tns:IThreadingWebService_GetGebruikersNaam_OutputMessage" />
+    <wsdl:operation name="GetUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetUsername" message="tns:IThreadingWebService_GetUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetUsernameResponse" message="tns:IThreadingWebService_GetUsername_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetGebruikersPW">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikersPW" message="tns:IThreadingWebService_GetGebruikersPW_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikersPWResponse" message="tns:IThreadingWebService_GetGebruikersPW_OutputMessage" />
+    <wsdl:operation name="GetUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserPassword" message="tns:IThreadingWebService_GetUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserPasswordResponse" message="tns:IThreadingWebService_GetUserPassword_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetGebruikersNaam">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetGebruikersNaam" message="tns:IThreadingWebService_SetGebruikersNaam_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetGebruikersNaamResponse" message="tns:IThreadingWebService_SetGebruikersNaam_OutputMessage" />
+    <wsdl:operation name="SetUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetUsername" message="tns:IThreadingWebService_SetUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetUsernameResponse" message="tns:IThreadingWebService_SetUsername_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetGebruikersPW">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetGebruikersPW" message="tns:IThreadingWebService_SetGebruikersPW_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetGebruikersPWResponse" message="tns:IThreadingWebService_SetGebruikersPW_OutputMessage" />
+    <wsdl:operation name="SetUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetUserPassword" message="tns:IThreadingWebService_SetUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetUserPasswordResponse" message="tns:IThreadingWebService_SetUserPassword_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddGebruiker">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/AddGebruiker" message="tns:IThreadingWebService_AddGebruiker_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/AddGebruikerResponse" message="tns:IThreadingWebService_AddGebruiker_OutputMessage" />
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/AddUser" message="tns:IThreadingWebService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/AddUserResponse" message="tns:IThreadingWebService_AddUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetGebruiker">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruiker" message="tns:IThreadingWebService_GetGebruiker_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikerResponse" message="tns:IThreadingWebService_GetGebruiker_OutputMessage" />
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetUser" message="tns:IThreadingWebService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserResponse" message="tns:IThreadingWebService_GetUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetGebruikerByName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikerByName" message="tns:IThreadingWebService_GetGebruikerByName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikerByNameResponse" message="tns:IThreadingWebService_GetGebruikerByName_OutputMessage" />
+    <wsdl:operation name="GetUserByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserByName" message="tns:IThreadingWebService_GetUserByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserByNameResponse" message="tns:IThreadingWebService_GetUserByName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllGebruikers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllGebruikers" message="tns:IThreadingWebService_GetAllGebruikers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllGebruikersResponse" message="tns:IThreadingWebService_GetAllGebruikers_OutputMessage" />
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllUsers" message="tns:IThreadingWebService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllUsersResponse" message="tns:IThreadingWebService_GetAllUsers_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="InlogMethode">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/InlogMethode" message="tns:IThreadingWebService_InlogMethode_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/InlogMethodeResponse" message="tns:IThreadingWebService_InlogMethode_OutputMessage" />
+    <wsdl:operation name="EnterCredentials">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/EnterCredentials" message="tns:IThreadingWebService_EnterCredentials_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/EnterCredentialsResponse" message="tns:IThreadingWebService_EnterCredentials_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="UploadFoto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/UploadFoto" message="tns:IThreadingWebService_UploadFoto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/UploadFotoResponse" message="tns:IThreadingWebService_UploadFoto_OutputMessage" />
+    <wsdl:operation name="UploadPhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/UploadPhoto" message="tns:IThreadingWebService_UploadPhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/UploadPhotoResponse" message="tns:IThreadingWebService_UploadPhoto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetFotoNaam">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetFotoNaam" message="tns:IThreadingWebService_GetFotoNaam_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetFotoNaamResponse" message="tns:IThreadingWebService_GetFotoNaam_OutputMessage" />
+    <wsdl:operation name="GetPhotoName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetPhotoName" message="tns:IThreadingWebService_GetPhotoName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetPhotoNameResponse" message="tns:IThreadingWebService_GetPhotoName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetFotoPath">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetFotoPath" message="tns:IThreadingWebService_GetFotoPath_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetFotoPathResponse" message="tns:IThreadingWebService_GetFotoPath_OutputMessage" />
+    <wsdl:operation name="GetPhotoPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetPhotoPath" message="tns:IThreadingWebService_GetPhotoPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetPhotoPathResponse" message="tns:IThreadingWebService_GetPhotoPath_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllFotos">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllFotos" message="tns:IThreadingWebService_GetAllFotos_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllFotosResponse" message="tns:IThreadingWebService_GetAllFotos_OutputMessage" />
+    <wsdl:operation name="GetAllPhotos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllPhotos" message="tns:IThreadingWebService_GetAllPhotos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllPhotosResponse" message="tns:IThreadingWebService_GetAllPhotos_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetFotoPath">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetFotoPath" message="tns:IThreadingWebService_SetFotoPath_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetFotoPathResponse" message="tns:IThreadingWebService_SetFotoPath_OutputMessage" />
+    <wsdl:operation name="SetPhotoPath">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetPhotoPath" message="tns:IThreadingWebService_SetPhotoPath_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetPhotoPathResponse" message="tns:IThreadingWebService_SetPhotoPath_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetFotoNaam">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetFotoNaam" message="tns:IThreadingWebService_SetFotoNaam_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetFotoNaamResponse" message="tns:IThreadingWebService_SetFotoNaam_OutputMessage" />
+    <wsdl:operation name="SetPhotoName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/SetPhotoName" message="tns:IThreadingWebService_SetPhotoName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/SetPhotoNameResponse" message="tns:IThreadingWebService_SetPhotoName_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddFoto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/AddFoto" message="tns:IThreadingWebService_AddFoto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/AddFotoResponse" message="tns:IThreadingWebService_AddFoto_OutputMessage" />
+    <wsdl:operation name="AddPhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/AddPhoto" message="tns:IThreadingWebService_AddPhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/AddPhotoResponse" message="tns:IThreadingWebService_AddPhoto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetGebruikerID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikerID" message="tns:IThreadingWebService_GetGebruikerID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetGebruikerIDResponse" message="tns:IThreadingWebService_GetGebruikerID_OutputMessage" />
+    <wsdl:operation name="GetUserByPhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserByPhoto" message="tns:IThreadingWebService_GetUserByPhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetUserByPhotoResponse" message="tns:IThreadingWebService_GetUserByPhoto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetFotoByGebruiker">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetFotoByGebruiker" message="tns:IThreadingWebService_GetFotoByGebruiker_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetFotoByGebruikerResponse" message="tns:IThreadingWebService_GetFotoByGebruiker_OutputMessage" />
+    <wsdl:operation name="GetPhotoByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetPhotoByUser" message="tns:IThreadingWebService_GetPhotoByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetPhotoByUserResponse" message="tns:IThreadingWebService_GetPhotoByUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteFoto">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/DeleteFoto" message="tns:IThreadingWebService_DeleteFoto_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/DeleteFotoResponse" message="tns:IThreadingWebService_DeleteFoto_OutputMessage" />
+    <wsdl:operation name="DeletePhoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/DeletePhoto" message="tns:IThreadingWebService_DeletePhoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/DeletePhotoResponse" message="tns:IThreadingWebService_DeletePhoto_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllFotosById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllFotosById" message="tns:IThreadingWebService_GetAllFotosById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllFotosByIdResponse" message="tns:IThreadingWebService_GetAllFotosById_OutputMessage" />
+    <wsdl:operation name="GetAllPhotosFromUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllPhotosFromUser" message="tns:IThreadingWebService_GetAllPhotosFromUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IThreadingWebService/GetAllPhotosFromUserResponse" message="tns:IThreadingWebService_GetAllPhotosFromUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IThreadingWebService" type="tns:IThreadingWebService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetGebruikersNaam">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetGebruikersNaam" style="document" />
+    <wsdl:operation name="GetUsername">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -220,8 +220,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetGebruikersPW">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetGebruikersPW" style="document" />
+    <wsdl:operation name="GetUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetUserPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -229,8 +229,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetGebruikersNaam">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetGebruikersNaam" style="document" />
+    <wsdl:operation name="SetUsername">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetUsername" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -238,8 +238,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetGebruikersPW">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetGebruikersPW" style="document" />
+    <wsdl:operation name="SetUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetUserPassword" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -247,8 +247,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddGebruiker">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/AddGebruiker" style="document" />
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/AddUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -256,8 +256,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetGebruiker">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetGebruiker" style="document" />
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -265,8 +265,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetGebruikerByName">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetGebruikerByName" style="document" />
+    <wsdl:operation name="GetUserByName">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetUserByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -274,8 +274,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllGebruikers">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetAllGebruikers" style="document" />
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetAllUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -283,8 +283,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="InlogMethode">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/InlogMethode" style="document" />
+    <wsdl:operation name="EnterCredentials">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/EnterCredentials" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -292,8 +292,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="UploadFoto">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/UploadFoto" style="document" />
+    <wsdl:operation name="UploadPhoto">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/UploadPhoto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -301,8 +301,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetFotoNaam">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetFotoNaam" style="document" />
+    <wsdl:operation name="GetPhotoName">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetPhotoName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -310,8 +310,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetFotoPath">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetFotoPath" style="document" />
+    <wsdl:operation name="GetPhotoPath">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetPhotoPath" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -319,8 +319,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllFotos">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetAllFotos" style="document" />
+    <wsdl:operation name="GetAllPhotos">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetAllPhotos" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -328,8 +328,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetFotoPath">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetFotoPath" style="document" />
+    <wsdl:operation name="SetPhotoPath">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetPhotoPath" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -337,8 +337,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetFotoNaam">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetFotoNaam" style="document" />
+    <wsdl:operation name="SetPhotoName">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/SetPhotoName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -346,8 +346,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddFoto">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/AddFoto" style="document" />
+    <wsdl:operation name="AddPhoto">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/AddPhoto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -355,8 +355,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetGebruikerID">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetGebruikerID" style="document" />
+    <wsdl:operation name="GetUserByPhoto">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetUserByPhoto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -364,8 +364,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetFotoByGebruiker">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetFotoByGebruiker" style="document" />
+    <wsdl:operation name="GetPhotoByUser">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetPhotoByUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -373,8 +373,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteFoto">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/DeleteFoto" style="document" />
+    <wsdl:operation name="DeletePhoto">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/DeletePhoto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -382,8 +382,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllFotosById">
-      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetAllFotosById" style="document" />
+    <wsdl:operation name="GetAllPhotosFromUser">
+      <soap:operation soapAction="http://tempuri.org/IThreadingWebService/GetAllPhotosFromUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

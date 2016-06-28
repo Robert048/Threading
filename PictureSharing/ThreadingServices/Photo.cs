@@ -12,11 +12,12 @@ namespace ThreadingServices
     using System;
     using System.Collections.Generic;
     
-    public partial class Foto
+    public partial class Photo
     {
-        public long FotoID { get; set; }
-        public string FotoNaam { get; set; }
-        public long GebruikerID { get; set; }
+        public long PhotoId { get; set; }
+        public string PhotoName { get; set; }
+        public long UserId { get; set; }
         public string Path { get; set; }
+        public byte[] ImageData { get; set; }
     }
 }

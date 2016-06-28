@@ -8,63 +8,63 @@ namespace ThreadingServices
     public interface IThreadingWebService
     {
         [OperationContract]
-        string GetGebruikersNaam(long gebrID);
+        string GetUsername(long userId);
 
         [OperationContract]
-        string GetGebruikersPW(long gebrID);
+        string GetUserPassword(long userId);
 
         [OperationContract]
-        bool SetGebruikersNaam(String gebruikersNaam, long gebrID);
+        bool SetUsername(string username, long userId);
 
         [OperationContract]
-        bool SetGebruikersPW(String password, long gebrID);
+        bool SetUserPassword(string password, long userId);
 
         [OperationContract]
-        void AddGebruiker(User gebruiker);
+        void AddUser(User user);
 
         [OperationContract]
-        User GetGebruiker(long gebrID);
+        User GetUser(long userId);
 
 		[OperationContract]
-		bool GetGebruikerByName(String gebruikersnaam);
+		bool GetUserByName(string username);
 
         [OperationContract]
-        List<User> GetAllGebruikers();
+        List<User> GetAllUsers();
 
         [OperationContract]
-        User InlogMethode(String gebrNaam, String password);
+        User EnterCredentials(string username, string password);
 
         [OperationContract]
-        string UploadFoto(string filename, byte[] imageStream, long gebrID);
+        string UploadPhoto(string filename, byte[] imageStream, long userId);
 
         [OperationContract]
-        string GetFotoNaam(long fotoID);
+        string GetPhotoName(long photoId);
 
         [OperationContract]
-        string GetFotoPath(long fotoID);
+        string GetPhotoPath(long photoId);
 
         [OperationContract]
-        List<Foto> GetAllFotos();
+        List<Photo> GetAllPhotos();
 
         [OperationContract]
-        bool SetFotoPath(long fotoID, string fotoPath);
+        bool SetPhotoPath(long photoId, string newPhotoPath);
 
         [OperationContract]
-        bool SetFotoNaam(long fotoID, string fotoNaam);
+        bool SetPhotoName(long photoId, string newPhotoName);
 
         [OperationContract]
-        void AddFoto(Foto foto);
+        void AddPhoto(Photo photo);
 
         [OperationContract]
-        long GetGebruikerID(long fotoID);
+        long GetUserByPhoto(long photoId);
 
         [OperationContract]
-        Foto GetFotoByGebruiker(long gebrID);
+        Photo GetPhotoByUser(long userId);
 
         [OperationContract]
-        void DeleteFoto(long fotoID);
+        void DeletePhoto(long photoId);
 
         [OperationContract]
-        List<Foto> GetAllFotosById(long gebrId);
+        List<Photo> GetAllPhotosFromUser(long userId);
     }
 }

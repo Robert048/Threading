@@ -20,47 +20,47 @@ namespace PictureSharing.WebServiceReference {
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ThreadingServices")]
     public partial class User : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private long GebruikerIDField;
+        private string PasswordField;
         
-        private string GebruikerNaamField;
+        private long UserIdField;
         
-        private string GebruikersPWField;
+        private string UsernameField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long GebruikerID {
+        public string Password {
             get {
-                return this.GebruikerIDField;
+                return this.PasswordField;
             }
             set {
-                if ((this.GebruikerIDField.Equals(value) != true)) {
-                    this.GebruikerIDField = value;
-                    this.RaisePropertyChanged("GebruikerID");
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GebruikerNaam {
+        public long UserId {
             get {
-                return this.GebruikerNaamField;
+                return this.UserIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.GebruikerNaamField, value) != true)) {
-                    this.GebruikerNaamField = value;
-                    this.RaisePropertyChanged("GebruikerNaam");
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string GebruikersPW {
+        public string Username {
             get {
-                return this.GebruikersPWField;
+                return this.UsernameField;
             }
             set {
-                if ((object.ReferenceEquals(this.GebruikersPWField, value) != true)) {
-                    this.GebruikersPWField = value;
-                    this.RaisePropertyChanged("GebruikersPW");
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
                 }
             }
         }
@@ -77,52 +77,28 @@ namespace PictureSharing.WebServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Foto", Namespace="http://schemas.datacontract.org/2004/07/ThreadingServices")]
-    public partial class Foto : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.DataContractAttribute(Name="Photo", Namespace="http://schemas.datacontract.org/2004/07/ThreadingServices")]
+    public partial class Photo : object, System.ComponentModel.INotifyPropertyChanged {
         
-        private long FotoIDField;
-        
-        private string FotoNaamField;
-        
-        private long GebruikerIDField;
+        private byte[] ImageDataField;
         
         private string PathField;
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long FotoID {
-            get {
-                return this.FotoIDField;
-            }
-            set {
-                if ((this.FotoIDField.Equals(value) != true)) {
-                    this.FotoIDField = value;
-                    this.RaisePropertyChanged("FotoID");
-                }
-            }
-        }
+        private long PhotoIdField;
+        
+        private string PhotoNameField;
+        
+        private long UserIdField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string FotoNaam {
+        public byte[] ImageData {
             get {
-                return this.FotoNaamField;
+                return this.ImageDataField;
             }
             set {
-                if ((object.ReferenceEquals(this.FotoNaamField, value) != true)) {
-                    this.FotoNaamField = value;
-                    this.RaisePropertyChanged("FotoNaam");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long GebruikerID {
-            get {
-                return this.GebruikerIDField;
-            }
-            set {
-                if ((this.GebruikerIDField.Equals(value) != true)) {
-                    this.GebruikerIDField = value;
-                    this.RaisePropertyChanged("GebruikerID");
+                if ((object.ReferenceEquals(this.ImageDataField, value) != true)) {
+                    this.ImageDataField = value;
+                    this.RaisePropertyChanged("ImageData");
                 }
             }
         }
@@ -136,6 +112,45 @@ namespace PictureSharing.WebServiceReference {
                 if ((object.ReferenceEquals(this.PathField, value) != true)) {
                     this.PathField = value;
                     this.RaisePropertyChanged("Path");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long PhotoId {
+            get {
+                return this.PhotoIdField;
+            }
+            set {
+                if ((this.PhotoIdField.Equals(value) != true)) {
+                    this.PhotoIdField = value;
+                    this.RaisePropertyChanged("PhotoId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string PhotoName {
+            get {
+                return this.PhotoNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhotoNameField, value) != true)) {
+                    this.PhotoNameField = value;
+                    this.RaisePropertyChanged("PhotoName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -154,65 +169,65 @@ namespace PictureSharing.WebServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebServiceReference.IThreadingWebService")]
     public interface IThreadingWebService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetGebruikersNaam", ReplyAction="http://tempuri.org/IThreadingWebService/GetGebruikersNaamResponse")]
-        System.Threading.Tasks.Task<string> GetGebruikersNaamAsync(long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetUsername", ReplyAction="http://tempuri.org/IThreadingWebService/GetUsernameResponse")]
+        System.Threading.Tasks.Task<string> GetUsernameAsync(long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetGebruikersPW", ReplyAction="http://tempuri.org/IThreadingWebService/GetGebruikersPWResponse")]
-        System.Threading.Tasks.Task<string> GetGebruikersPWAsync(long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetUserPassword", ReplyAction="http://tempuri.org/IThreadingWebService/GetUserPasswordResponse")]
+        System.Threading.Tasks.Task<string> GetUserPasswordAsync(long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetGebruikersNaam", ReplyAction="http://tempuri.org/IThreadingWebService/SetGebruikersNaamResponse")]
-        System.Threading.Tasks.Task<bool> SetGebruikersNaamAsync(string gebruikersNaam, long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetUsername", ReplyAction="http://tempuri.org/IThreadingWebService/SetUsernameResponse")]
+        System.Threading.Tasks.Task<bool> SetUsernameAsync(string username, long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetGebruikersPW", ReplyAction="http://tempuri.org/IThreadingWebService/SetGebruikersPWResponse")]
-        System.Threading.Tasks.Task<bool> SetGebruikersPWAsync(string password, long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetUserPassword", ReplyAction="http://tempuri.org/IThreadingWebService/SetUserPasswordResponse")]
+        System.Threading.Tasks.Task<bool> SetUserPasswordAsync(string password, long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/AddGebruiker", ReplyAction="http://tempuri.org/IThreadingWebService/AddGebruikerResponse")]
-        System.Threading.Tasks.Task AddGebruikerAsync(PictureSharing.WebServiceReference.User gebruiker);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/AddUser", ReplyAction="http://tempuri.org/IThreadingWebService/AddUserResponse")]
+        System.Threading.Tasks.Task AddUserAsync(PictureSharing.WebServiceReference.User user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetGebruiker", ReplyAction="http://tempuri.org/IThreadingWebService/GetGebruikerResponse")]
-        System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> GetGebruikerAsync(long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetUser", ReplyAction="http://tempuri.org/IThreadingWebService/GetUserResponse")]
+        System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> GetUserAsync(long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetGebruikerByName", ReplyAction="http://tempuri.org/IThreadingWebService/GetGebruikerByNameResponse")]
-        System.Threading.Tasks.Task<bool> GetGebruikerByNameAsync(string gebruikersnaam);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetUserByName", ReplyAction="http://tempuri.org/IThreadingWebService/GetUserByNameResponse")]
+        System.Threading.Tasks.Task<bool> GetUserByNameAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetAllGebruikers", ReplyAction="http://tempuri.org/IThreadingWebService/GetAllGebruikersResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.User>> GetAllGebruikersAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetAllUsers", ReplyAction="http://tempuri.org/IThreadingWebService/GetAllUsersResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.User>> GetAllUsersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/InlogMethode", ReplyAction="http://tempuri.org/IThreadingWebService/InlogMethodeResponse")]
-        System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> InlogMethodeAsync(string gebrNaam, string password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/EnterCredentials", ReplyAction="http://tempuri.org/IThreadingWebService/EnterCredentialsResponse")]
+        System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> EnterCredentialsAsync(string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/UploadFoto", ReplyAction="http://tempuri.org/IThreadingWebService/UploadFotoResponse")]
-        System.Threading.Tasks.Task<string> UploadFotoAsync(string filename, byte[] imageStream, long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/UploadPhoto", ReplyAction="http://tempuri.org/IThreadingWebService/UploadPhotoResponse")]
+        System.Threading.Tasks.Task<string> UploadPhotoAsync(string filename, byte[] imageStream, long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetFotoNaam", ReplyAction="http://tempuri.org/IThreadingWebService/GetFotoNaamResponse")]
-        System.Threading.Tasks.Task<string> GetFotoNaamAsync(long fotoID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetPhotoName", ReplyAction="http://tempuri.org/IThreadingWebService/GetPhotoNameResponse")]
+        System.Threading.Tasks.Task<string> GetPhotoNameAsync(long photoId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetFotoPath", ReplyAction="http://tempuri.org/IThreadingWebService/GetFotoPathResponse")]
-        System.Threading.Tasks.Task<string> GetFotoPathAsync(long fotoID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetPhotoPath", ReplyAction="http://tempuri.org/IThreadingWebService/GetPhotoPathResponse")]
+        System.Threading.Tasks.Task<string> GetPhotoPathAsync(long photoId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetAllFotos", ReplyAction="http://tempuri.org/IThreadingWebService/GetAllFotosResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Foto>> GetAllFotosAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetAllPhotos", ReplyAction="http://tempuri.org/IThreadingWebService/GetAllPhotosResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Photo>> GetAllPhotosAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetFotoPath", ReplyAction="http://tempuri.org/IThreadingWebService/SetFotoPathResponse")]
-        System.Threading.Tasks.Task<bool> SetFotoPathAsync(long fotoID, string fotoPath);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetPhotoPath", ReplyAction="http://tempuri.org/IThreadingWebService/SetPhotoPathResponse")]
+        System.Threading.Tasks.Task<bool> SetPhotoPathAsync(long photoId, string newPhotoPath);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetFotoNaam", ReplyAction="http://tempuri.org/IThreadingWebService/SetFotoNaamResponse")]
-        System.Threading.Tasks.Task<bool> SetFotoNaamAsync(long fotoID, string fotoNaam);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/SetPhotoName", ReplyAction="http://tempuri.org/IThreadingWebService/SetPhotoNameResponse")]
+        System.Threading.Tasks.Task<bool> SetPhotoNameAsync(long photoId, string newPhotoName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/AddFoto", ReplyAction="http://tempuri.org/IThreadingWebService/AddFotoResponse")]
-        System.Threading.Tasks.Task AddFotoAsync(PictureSharing.WebServiceReference.Foto foto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/AddPhoto", ReplyAction="http://tempuri.org/IThreadingWebService/AddPhotoResponse")]
+        System.Threading.Tasks.Task AddPhotoAsync(PictureSharing.WebServiceReference.Photo photo);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetGebruikerID", ReplyAction="http://tempuri.org/IThreadingWebService/GetGebruikerIDResponse")]
-        System.Threading.Tasks.Task<long> GetGebruikerIDAsync(long fotoID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetUserByPhoto", ReplyAction="http://tempuri.org/IThreadingWebService/GetUserByPhotoResponse")]
+        System.Threading.Tasks.Task<long> GetUserByPhotoAsync(long photoId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetFotoByGebruiker", ReplyAction="http://tempuri.org/IThreadingWebService/GetFotoByGebruikerResponse")]
-        System.Threading.Tasks.Task<PictureSharing.WebServiceReference.Foto> GetFotoByGebruikerAsync(long gebrID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetPhotoByUser", ReplyAction="http://tempuri.org/IThreadingWebService/GetPhotoByUserResponse")]
+        System.Threading.Tasks.Task<PictureSharing.WebServiceReference.Photo> GetPhotoByUserAsync(long userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/DeleteFoto", ReplyAction="http://tempuri.org/IThreadingWebService/DeleteFotoResponse")]
-        System.Threading.Tasks.Task DeleteFotoAsync(long fotoID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/DeletePhoto", ReplyAction="http://tempuri.org/IThreadingWebService/DeletePhotoResponse")]
+        System.Threading.Tasks.Task DeletePhotoAsync(long photoId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetAllFotosById", ReplyAction="http://tempuri.org/IThreadingWebService/GetAllFotosByIdResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Foto>> GetAllFotosByIdAsync(long gebrId);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IThreadingWebService/GetAllPhotosFromUser", ReplyAction="http://tempuri.org/IThreadingWebService/GetAllPhotosFromUserResponse")]
+        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Photo>> GetAllPhotosFromUserAsync(long userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -258,84 +273,84 @@ namespace PictureSharing.WebServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public System.Threading.Tasks.Task<string> GetGebruikersNaamAsync(long gebrID) {
-            return base.Channel.GetGebruikersNaamAsync(gebrID);
+        public System.Threading.Tasks.Task<string> GetUsernameAsync(long userId) {
+            return base.Channel.GetUsernameAsync(userId);
         }
         
-        public System.Threading.Tasks.Task<string> GetGebruikersPWAsync(long gebrID) {
-            return base.Channel.GetGebruikersPWAsync(gebrID);
+        public System.Threading.Tasks.Task<string> GetUserPasswordAsync(long userId) {
+            return base.Channel.GetUserPasswordAsync(userId);
         }
         
-        public System.Threading.Tasks.Task<bool> SetGebruikersNaamAsync(string gebruikersNaam, long gebrID) {
-            return base.Channel.SetGebruikersNaamAsync(gebruikersNaam, gebrID);
+        public System.Threading.Tasks.Task<bool> SetUsernameAsync(string username, long userId) {
+            return base.Channel.SetUsernameAsync(username, userId);
         }
         
-        public System.Threading.Tasks.Task<bool> SetGebruikersPWAsync(string password, long gebrID) {
-            return base.Channel.SetGebruikersPWAsync(password, gebrID);
+        public System.Threading.Tasks.Task<bool> SetUserPasswordAsync(string password, long userId) {
+            return base.Channel.SetUserPasswordAsync(password, userId);
         }
         
-        public System.Threading.Tasks.Task AddGebruikerAsync(PictureSharing.WebServiceReference.User gebruiker) {
-            return base.Channel.AddGebruikerAsync(gebruiker);
+        public System.Threading.Tasks.Task AddUserAsync(PictureSharing.WebServiceReference.User user) {
+            return base.Channel.AddUserAsync(user);
         }
         
-        public System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> GetGebruikerAsync(long gebrID) {
-            return base.Channel.GetGebruikerAsync(gebrID);
+        public System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> GetUserAsync(long userId) {
+            return base.Channel.GetUserAsync(userId);
         }
         
-        public System.Threading.Tasks.Task<bool> GetGebruikerByNameAsync(string gebruikersnaam) {
-            return base.Channel.GetGebruikerByNameAsync(gebruikersnaam);
+        public System.Threading.Tasks.Task<bool> GetUserByNameAsync(string username) {
+            return base.Channel.GetUserByNameAsync(username);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.User>> GetAllGebruikersAsync() {
-            return base.Channel.GetAllGebruikersAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.User>> GetAllUsersAsync() {
+            return base.Channel.GetAllUsersAsync();
         }
         
-        public System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> InlogMethodeAsync(string gebrNaam, string password) {
-            return base.Channel.InlogMethodeAsync(gebrNaam, password);
+        public System.Threading.Tasks.Task<PictureSharing.WebServiceReference.User> EnterCredentialsAsync(string username, string password) {
+            return base.Channel.EnterCredentialsAsync(username, password);
         }
         
-        public System.Threading.Tasks.Task<string> UploadFotoAsync(string filename, byte[] imageStream, long gebrID) {
-            return base.Channel.UploadFotoAsync(filename, imageStream, gebrID);
+        public System.Threading.Tasks.Task<string> UploadPhotoAsync(string filename, byte[] imageStream, long userId) {
+            return base.Channel.UploadPhotoAsync(filename, imageStream, userId);
         }
         
-        public System.Threading.Tasks.Task<string> GetFotoNaamAsync(long fotoID) {
-            return base.Channel.GetFotoNaamAsync(fotoID);
+        public System.Threading.Tasks.Task<string> GetPhotoNameAsync(long photoId) {
+            return base.Channel.GetPhotoNameAsync(photoId);
         }
         
-        public System.Threading.Tasks.Task<string> GetFotoPathAsync(long fotoID) {
-            return base.Channel.GetFotoPathAsync(fotoID);
+        public System.Threading.Tasks.Task<string> GetPhotoPathAsync(long photoId) {
+            return base.Channel.GetPhotoPathAsync(photoId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Foto>> GetAllFotosAsync() {
-            return base.Channel.GetAllFotosAsync();
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Photo>> GetAllPhotosAsync() {
+            return base.Channel.GetAllPhotosAsync();
         }
         
-        public System.Threading.Tasks.Task<bool> SetFotoPathAsync(long fotoID, string fotoPath) {
-            return base.Channel.SetFotoPathAsync(fotoID, fotoPath);
+        public System.Threading.Tasks.Task<bool> SetPhotoPathAsync(long photoId, string newPhotoPath) {
+            return base.Channel.SetPhotoPathAsync(photoId, newPhotoPath);
         }
         
-        public System.Threading.Tasks.Task<bool> SetFotoNaamAsync(long fotoID, string fotoNaam) {
-            return base.Channel.SetFotoNaamAsync(fotoID, fotoNaam);
+        public System.Threading.Tasks.Task<bool> SetPhotoNameAsync(long photoId, string newPhotoName) {
+            return base.Channel.SetPhotoNameAsync(photoId, newPhotoName);
         }
         
-        public System.Threading.Tasks.Task AddFotoAsync(PictureSharing.WebServiceReference.Foto foto) {
-            return base.Channel.AddFotoAsync(foto);
+        public System.Threading.Tasks.Task AddPhotoAsync(PictureSharing.WebServiceReference.Photo photo) {
+            return base.Channel.AddPhotoAsync(photo);
         }
         
-        public System.Threading.Tasks.Task<long> GetGebruikerIDAsync(long fotoID) {
-            return base.Channel.GetGebruikerIDAsync(fotoID);
+        public System.Threading.Tasks.Task<long> GetUserByPhotoAsync(long photoId) {
+            return base.Channel.GetUserByPhotoAsync(photoId);
         }
         
-        public System.Threading.Tasks.Task<PictureSharing.WebServiceReference.Foto> GetFotoByGebruikerAsync(long gebrID) {
-            return base.Channel.GetFotoByGebruikerAsync(gebrID);
+        public System.Threading.Tasks.Task<PictureSharing.WebServiceReference.Photo> GetPhotoByUserAsync(long userId) {
+            return base.Channel.GetPhotoByUserAsync(userId);
         }
         
-        public System.Threading.Tasks.Task DeleteFotoAsync(long fotoID) {
-            return base.Channel.DeleteFotoAsync(fotoID);
+        public System.Threading.Tasks.Task DeletePhotoAsync(long photoId) {
+            return base.Channel.DeletePhotoAsync(photoId);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Foto>> GetAllFotosByIdAsync(long gebrId) {
-            return base.Channel.GetAllFotosByIdAsync(gebrId);
+        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<PictureSharing.WebServiceReference.Photo>> GetAllPhotosFromUserAsync(long userId) {
+            return base.Channel.GetAllPhotosFromUserAsync(userId);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync() {

@@ -8,35 +8,35 @@ namespace ThreadingServices
 	public class ThreadingWebService : IThreadingWebService
 	{
 		// Haal de gebruikersnaam op uit de database
-		public string GetGebruikersNaam(long gebrID)
+		public string GetUsername(long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				return (from g in ent.Users where g.GebruikerID == gebrID select g.GebruikerNaam).First();
+				return (from g in ent.Users where g.UserId == userId select g.Username).First();
 			}
 		}
 
 		// Haal het wachtwoord op uit de database
-		public string GetGebruikersPW(long gebrID)
+		public string GetUserPassword(long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				return (from g in ent.Users where g.GebruikerID == gebrID select g.GebruikersPW).First();
+				return (from g in ent.Users where g.UserId == userId select g.Password).First();
 			}
 		}
 
 		// Haal de gebruiker uit de database aan de hand van de gebruikers ID en return een USER object met de informatie
-		public User GetGebruiker(long gebrID)
+		public User GetUser(long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
 				User gebr = new User();
-				var dbGebr = (from g in ent.Users where g.GebruikerID == gebrID select g).First();
+				var dbGebr = (from g in ent.Users where g.UserId == userId select g).First();
 				if (dbGebr != null)
 				{
-					gebr.GebruikerID = dbGebr.GebruikerID;
-					gebr.GebruikerNaam = dbGebr.GebruikerNaam;
-					gebr.GebruikersPW = dbGebr.GebruikersPW;
+					gebr.UserId = dbGebr.UserId;
+					gebr.Username = dbGebr.Username;
+					gebr.Password = dbGebr.Password;
 					return gebr;
 				}
 				return null;
@@ -44,11 +44,11 @@ namespace ThreadingServices
 		}
 
 		// Methode die boolean terug geeft wanneer gebruiker wel of niet bestaat
-		public bool GetGebruikerByName(String gebruikersnaam)
+		public bool GetUserByName(string username)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var gebruiker = (from g in ent.Users where g.GebruikerNaam == gebruikersnaam select g).First();
+				var gebruiker = (from g in ent.Users where g.Username == username select g).First();
 				if (gebruiker != null)
 				{
 					return true;
@@ -58,7 +58,7 @@ namespace ThreadingServices
 		}
 
 		// Methode die een USER object returned aan de hand van de gebruikersnaam en wachtwoord van de gebruiker
-		public User InlogMethode(String gebrNaam, String password)
+		public User EnterCredentials(string username, string password)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
@@ -66,13 +66,13 @@ namespace ThreadingServices
 
 				// Return a user where password and gebr name are the same in the db as given. Else return null
 				var user =
-						(from g in ent.Users where g.GebruikerNaam == gebrNaam && g.GebruikersPW == password select g)
+						(from g in ent.Users where g.Username == username && g.Password == password select g)
 								.First();
 				if (user != null)
 				{
-					gebruiker.GebruikerID = user.GebruikerID;
-					gebruiker.GebruikerNaam = user.GebruikerNaam;
-					gebruiker.GebruikersPW = user.GebruikersPW;
+					gebruiker.UserId = user.UserId;
+					gebruiker.Username = user.Username;
+					gebruiker.Password = user.Password;
 
 					return gebruiker;
 				}
@@ -81,14 +81,14 @@ namespace ThreadingServices
 		}
 
 		// Verander de gebruikersnaam in de database aan de hand van gebruikersID
-		public bool SetGebruikersNaam(String gebrNaam, long gebrID)
+		public bool SetUsername(string gebrNaam, long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var user = (from g in ent.Users where g.GebruikerID == gebrID select g).First();
+				var user = (from g in ent.Users where g.UserId == userId select g).First();
 				if (user != null)
 				{
-					user.GebruikerNaam = gebrNaam;
+					user.Username = gebrNaam;
 					ent.SaveChanges();
 					return true;
 				}
@@ -97,14 +97,14 @@ namespace ThreadingServices
 		}
 
 		// Set het wachtwoord van de gebruiker in de database aan de hand van de gebruikersID
-		public bool SetGebruikersPW(String pw, long gebrID)
+		public bool SetUserPassword(string pw, long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var user = (from g in ent.Users where g.GebruikerID == gebrID select g).First();
+				var user = (from g in ent.Users where g.UserId == userId select g).First();
 				if (user != null)
 				{
-					user.GebruikersPW = pw;
+					user.Password = pw;
 					ent.SaveChanges();
 					return true;
 				}
@@ -113,18 +113,18 @@ namespace ThreadingServices
 		}
 
 		// Voeg een nieuwe gebruiker toe aan de database
-		public void AddGebruiker(User gebruiker)
+		public void AddUser(User user)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				ent.Users.Attach(gebruiker);
-				ent.Users.Add(gebruiker);
+				ent.Users.Attach(user);
+				ent.Users.Add(user);
 				ent.SaveChanges();
 			}
 		}
 
 		// Haal alle aanwezige gebruikers op uit de database
-		public List<User> GetAllGebruikers()
+		public List<User> GetAllUsers()
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
@@ -135,9 +135,9 @@ namespace ThreadingServices
 				{
 					User tempU = new User();
 
-					tempU.GebruikerID = user.GebruikerID;
-					tempU.GebruikerNaam = user.GebruikerNaam;
-					tempU.GebruikersPW = user.GebruikersPW;
+					tempU.UserId = user.UserId;
+					tempU.Username = user.Username;
+					tempU.Password = user.Password;
 
 					returnList.Add(tempU);
 				}
@@ -146,10 +146,9 @@ namespace ThreadingServices
 		}
 
 		// Upload een foto en store hem lokaal, zet een referentie naar de foto in de database
-		public string UploadFoto(String filename, byte[] imageStream, long gebrID)
+		public string UploadPhoto(string filename, byte[] imageStream, long userId)
 		{
-
-			string filePath = Path.Combine((Environment.GetFolderPath(Environment.SpecialFolder.Desktop)), filename); // Host HostingEnvironment.MapPath
+            string filePath = Path.Combine((Environment.GetFolderPath(Environment.SpecialFolder.Desktop)), filename); // Host HostingEnvironment.MapPath
 			int length = 0;
 			Stream stream = new MemoryStream(imageStream);
 
@@ -167,13 +166,14 @@ namespace ThreadingServices
 			}
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				Foto foto = new Foto();
-				foto.FotoNaam = filename;
+				Photo foto = new Photo();
+				foto.PhotoName = filename;
 				foto.Path = filePath;
-				foto.GebruikerID = gebrID;
+				foto.UserId = userId;
+			    foto.ImageData = imageStream;
 
-				ent.Fotoes.Attach(foto);
-				ent.Fotoes.Add(foto);
+				ent.Photos.Attach(foto);
+				ent.Photos.Add(foto);
 				ent.SaveChanges();
 			}
 
@@ -181,29 +181,29 @@ namespace ThreadingServices
 		}
 
 		// Haal de naam van de foto op uit de database aan de hand van fotoID
-		public string GetFotoNaam(long fotoID)
+		public string GetPhotoName(long photoId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				return (from f in ent.Fotoes where f.FotoID == fotoID select f.FotoNaam).First();
+				return (from f in ent.Photos where f.PhotoId == photoId select f.PhotoName).First();
 			}
 		}
 
 		// Haal het pad op van de opgeslagen foto uit de database aan de hand van fotoID
-		public string GetFotoPath(long fotoId)
+		public string GetPhotoPath(long fotoId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				return (from f in ent.Fotoes where f.FotoID == fotoId select f.Path).First();
+				return (from f in ent.Photos where f.PhotoId == fotoId select f.Path).First();
 			}
 		}
 
 		// Zet een nieuw pad voor een foto aan de hand van fotoID
-		public bool SetFotoPath(long fotoID, string path)
+		public bool SetPhotoPath(long photoId, string path)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var foto = (from f in ent.Fotoes where f.FotoID == fotoID select f).First();
+				var foto = (from f in ent.Photos where f.PhotoId == photoId select f).First();
 				if (foto != null)
 				{
 					foto.Path = path;
@@ -215,14 +215,14 @@ namespace ThreadingServices
 		}
 
 		// Geef de foto een nieuwe naam aan de hand van fotoID
-		public bool SetFotoNaam(long fotoID, string naam)
+		public bool SetPhotoName(long photoId, string naam)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var foto = (from f in ent.Fotoes where f.FotoID == fotoID select f).First();
+				var foto = (from f in ent.Photos where f.PhotoId == photoId select f).First();
 				if (foto != null)
 				{
-					foto.FotoNaam = naam;
+					foto.PhotoName = naam;
 					ent.SaveChanges();
 					return true;
 				}
@@ -231,79 +231,57 @@ namespace ThreadingServices
 		}
 
 		// Voeg een nieuwe foto toe aan de database
-		public void AddFoto(Foto foto)
+		public void AddPhoto(Photo photo)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				ent.Fotoes.Add(foto);
+				ent.Photos.Add(photo);
 			}
 		}
 
 		// Haal het gebruikersID op van de foto aan de hand van fotoID
-		public long GetGebruikerID(long fotoID)
+		public long GetUserByPhoto(long photoId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				return (from f in ent.Fotoes where f.FotoID == fotoID select f.GebruikerID).First();
+				return (from f in ent.Photos where f.PhotoId == photoId select f.UserId).First();
 			}
 		}
 
 		// Return een foto object aan de hand van gebruikerID
-		public Foto GetFotoByGebruiker(long gebrID)
+		public Photo GetPhotoByUser(long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				return (from f in ent.Fotoes where f.GebruikerID == gebrID select f).First();
+				return (from f in ent.Photos where f.UserId == userId select f).First();
 			}
 		}
 
 		// Return een lijst met foto's uit de database
-		public List<Foto> GetAllFotos()
+		public List<Photo> GetAllPhotos()
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var fotoList = (from f in ent.Fotoes select f);
-				List<Foto> returnList = new List<Foto>();
-				foreach (var foto in fotoList)
-				{
-					Foto tempFoto = new Foto();
-					tempFoto.FotoID = foto.FotoID;
-					tempFoto.FotoNaam = foto.FotoNaam;
-					tempFoto.GebruikerID = foto.GebruikerID;
-					tempFoto.Path = foto.Path;
-					returnList.Add(tempFoto);
-				}
-				return returnList;
+				return ent.Photos.ToList();
 			}
 		}
 
 		// Return een lijst met foto's aan de hand van gebruikerID
-		public List<Foto> GetAllFotosById(long gebrId)
+		public List<Photo> GetAllPhotosFromUser(long userId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var fotoList = (from f in ent.Fotoes where f.GebruikerID == gebrId select f);
-				List<Foto> returnList = new List<Foto>();
-				foreach (var foto in fotoList)
-				{
-					Foto tempFoto = new Foto();
-					tempFoto.FotoID = foto.FotoID;
-					tempFoto.FotoNaam = foto.FotoNaam;
-					tempFoto.GebruikerID = foto.GebruikerID;
-					tempFoto.Path = foto.Path;
-					returnList.Add(tempFoto);
-				}
-				return returnList;
+				return (from f in ent.Photos where f.UserId == userId select f).ToList();
 			}
 		}
 
 		// Delete een foto uit de database
-		public void DeleteFoto(long fotoID)
+		public void DeletePhoto(long photoId)
 		{
 			using (ThreadingEntities ent = new ThreadingEntities())
 			{
-				var removeFoto = (from f in ent.Fotoes where f.FotoID == fotoID select f).First();
-				ent.Fotoes.Remove(removeFoto);
+				var removeFoto = (from f in ent.Photos where f.PhotoId == photoId select f).First();
+				ent.Photos.Remove(removeFoto);
 				ent.SaveChanges();
 			}
 		}

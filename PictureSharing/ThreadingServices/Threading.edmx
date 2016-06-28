@@ -5,74 +5,77 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ThreadingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Foto">
+        <EntityType Name="Photo">
           <Key>
-            <PropertyRef Name="FotoID" />
+            <PropertyRef Name="PhotoId" />
           </Key>
-          <Property Name="FotoID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FotoNaam" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="GebruikerID" Type="bigint" Nullable="false" />
+          <Property Name="PhotoId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PhotoName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="bigint" Nullable="false" />
           <Property Name="Path" Type="varchar(max)" Nullable="false" />
+          <Property Name="ImageData" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="GebruikerID" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="GebruikerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="GebruikerNaam" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="GebruikersPW" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityContainer Name="ThreadingModelStoreContainer">
-          <EntitySet Name="Foto" EntityType="Self.Foto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ThreadingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Foto">
+        <EntityContainer Name="ThreadingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Photos" EntityType="ThreadingModel.Photo" />
+          <EntitySet Name="Users" EntityType="ThreadingModel.User" />
+        </EntityContainer>
+        <EntityType Name="Photo">
           <Key>
-            <PropertyRef Name="FotoID" />
+            <PropertyRef Name="PhotoId" />
           </Key>
-          <Property Name="FotoID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FotoNaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GebruikerID" Type="Int64" Nullable="false" />
-          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhotoId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PhotoName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" />
+          <Property Name="Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="GebruikerID" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Name="GebruikerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GebruikerNaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="GebruikersPW" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="ThreadingEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Fotoes" EntityType="Self.Foto" />
-          <EntitySet Name="Users" EntityType="Self.User" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ThreadingModelStoreContainer" CdmEntityContainer="ThreadingEntities">
-          <EntitySetMapping Name="Fotoes">
-            <EntityTypeMapping TypeName="ThreadingModel.Foto">
-              <MappingFragment StoreEntitySet="Foto">
-                <ScalarProperty Name="FotoID" ColumnName="FotoID" />
-                <ScalarProperty Name="FotoNaam" ColumnName="FotoNaam" />
-                <ScalarProperty Name="GebruikerID" ColumnName="GebruikerID" />
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="ThreadingModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="ImageData" ColumnName="ImageData" />
                 <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="PhotoName" ColumnName="PhotoName" />
+                <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ThreadingModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="GebruikerID" ColumnName="GebruikerID" />
-                <ScalarProperty Name="GebruikerNaam" ColumnName="GebruikerNaam" />
-                <ScalarProperty Name="GebruikersPW" ColumnName="GebruikersPW" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

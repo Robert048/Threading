@@ -1,280 +1,280 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:39046/ThreadingWebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ThreadingServices" />
-  <xs:element name="GetGebruikersNaam">
+  <xs:element name="GetUsername">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikersNaamResponse">
+  <xs:element name="GetUsernameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetGebruikersNaamResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetUsernameResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikersPW">
+  <xs:element name="GetUserPassword">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikersPWResponse">
+  <xs:element name="GetUserPasswordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetGebruikersPWResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetUserPasswordResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetGebruikersNaam">
+  <xs:element name="SetUsername">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebruikersNaam" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetGebruikersNaamResponse">
+  <xs:element name="SetUsernameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SetGebruikersNaamResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="SetUsernameResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetGebruikersPW">
+  <xs:element name="SetUserPassword">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetGebruikersPWResponse">
+  <xs:element name="SetUserPasswordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SetGebruikersPWResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="SetUserPasswordResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddGebruiker">
+  <xs:element name="AddUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="gebruiker" nillable="true" type="q1:User" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="user" nillable="true" type="q1:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddGebruikerResponse">
+  <xs:element name="AddUserResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruiker">
+  <xs:element name="GetUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikerResponse">
+  <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetGebruikerResult" nillable="true" type="q2:User" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetUserResult" nillable="true" type="q2:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikerByName">
+  <xs:element name="GetUserByName">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebruikersnaam" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikerByNameResponse">
+  <xs:element name="GetUserByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetGebruikerByNameResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="GetUserByNameResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllGebruikers">
+  <xs:element name="GetAllUsers">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllGebruikersResponse">
+  <xs:element name="GetAllUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetAllGebruikersResult" nillable="true" type="q3:ArrayOfUser" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q3:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InlogMethode">
+  <xs:element name="EnterCredentials">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebrNaam" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InlogMethodeResponse">
+  <xs:element name="EnterCredentialsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="InlogMethodeResult" nillable="true" type="q4:User" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="EnterCredentialsResult" nillable="true" type="q4:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UploadFoto">
+  <xs:element name="UploadPhoto">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="filename" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="imageStream" nillable="true" type="xs:base64Binary" />
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="UploadFotoResponse">
+  <xs:element name="UploadPhotoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="UploadFotoResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UploadPhotoResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetFotoNaam">
+  <xs:element name="GetPhotoName">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fotoID" type="xs:long" />
+        <xs:element minOccurs="0" name="photoId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetFotoNaamResponse">
+  <xs:element name="GetPhotoNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetFotoNaamResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetPhotoNameResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetFotoPath">
+  <xs:element name="GetPhotoPath">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fotoID" type="xs:long" />
+        <xs:element minOccurs="0" name="photoId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetFotoPathResponse">
+  <xs:element name="GetPhotoPathResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetFotoPathResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetPhotoPathResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllFotos">
+  <xs:element name="GetAllPhotos">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllFotosResponse">
+  <xs:element name="GetAllPhotosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetAllFotosResult" nillable="true" type="q5:ArrayOfFoto" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetAllPhotosResult" nillable="true" type="q5:ArrayOfPhoto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetFotoPath">
+  <xs:element name="SetPhotoPath">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fotoID" type="xs:long" />
-        <xs:element minOccurs="0" name="fotoPath" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="photoId" type="xs:long" />
+        <xs:element minOccurs="0" name="newPhotoPath" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetFotoPathResponse">
+  <xs:element name="SetPhotoPathResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SetFotoPathResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="SetPhotoPathResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetFotoNaam">
+  <xs:element name="SetPhotoName">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fotoID" type="xs:long" />
-        <xs:element minOccurs="0" name="fotoNaam" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="photoId" type="xs:long" />
+        <xs:element minOccurs="0" name="newPhotoName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetFotoNaamResponse">
+  <xs:element name="SetPhotoNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SetFotoNaamResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="SetPhotoNameResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddFoto">
+  <xs:element name="AddPhoto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="foto" nillable="true" type="q6:Foto" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="photo" nillable="true" type="q6:Photo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddFotoResponse">
+  <xs:element name="AddPhotoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikerID">
+  <xs:element name="GetUserByPhoto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fotoID" type="xs:long" />
+        <xs:element minOccurs="0" name="photoId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetGebruikerIDResponse">
+  <xs:element name="GetUserByPhotoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetGebruikerIDResult" type="xs:long" />
+        <xs:element minOccurs="0" name="GetUserByPhotoResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetFotoByGebruiker">
+  <xs:element name="GetPhotoByUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebrID" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetFotoByGebruikerResponse">
+  <xs:element name="GetPhotoByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetFotoByGebruikerResult" nillable="true" type="q7:Foto" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetPhotoByUserResult" nillable="true" type="q7:Photo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteFoto">
+  <xs:element name="DeletePhoto">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="fotoID" type="xs:long" />
+        <xs:element minOccurs="0" name="photoId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeleteFotoResponse">
+  <xs:element name="DeletePhotoResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllFotosById">
+  <xs:element name="GetAllPhotosFromUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gebrId" type="xs:long" />
+        <xs:element minOccurs="0" name="userId" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAllFotosByIdResponse">
+  <xs:element name="GetAllPhotosFromUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetAllFotosByIdResult" nillable="true" type="q8:ArrayOfFoto" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ThreadingServices" minOccurs="0" name="GetAllPhotosFromUserResult" nillable="true" type="q8:ArrayOfPhoto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

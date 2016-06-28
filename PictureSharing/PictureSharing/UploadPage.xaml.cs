@@ -150,7 +150,7 @@ namespace PictureSharing
             //Try to upload the image
             try
             {
-                image.uploadstatus = await client.UploadFotoAsync(image.filename, image.imageStream, userId);
+                image.uploadstatus = await client.UploadPhotoAsync(image.filename, image.imageStream, userId);
             }
             catch(Exception e)
             {

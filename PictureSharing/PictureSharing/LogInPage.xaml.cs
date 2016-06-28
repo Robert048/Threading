@@ -12,9 +12,9 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class LogInPage : Page
 	{
-		private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
-		public static WebServiceReference.User user = new WebServiceReference.User();
-        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+		private ThreadingWebServiceClient _client = new ThreadingWebServiceClient();
+		private static WebServiceReference.User _user = new WebServiceReference.User();
+        ApplicationDataContainer _localSettings = ApplicationData.Current.LocalSettings;
 
         // Initializing the Page.
         public LogInPage()
@@ -31,9 +31,9 @@ namespace PictureSharing
 		{
 			try
 			{
-				user = await client.InlogMethodeAsync(usrTxt.Text, pswTxt.Password);
-				User currentUser = new User() { gebruikersID = user.GebruikerID, gebruikersNaam = user.GebruikerNaam, gebruikersPW = user.GebruikersPW };
-				localSettings.Values["currentUser"] = currentUser.gebruikersID;
+				_user = await _client.EnterCredentialsAsync(usrTxt.Text, pswTxt.Password);
+				User currentUser = new User { Id = _user.UserId, Name = _user.Username, Password = _user.Password };
+				_localSettings.Values["currentUser"] = currentUser.Id;
 				Frame.Navigate(typeof(MainPage));
 			}
 			catch (Exception ex)

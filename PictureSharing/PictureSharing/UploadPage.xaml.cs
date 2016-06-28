@@ -24,7 +24,7 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class UploadPage : Page
     {
-        public ObservableCollection<uploadIMG> uploadImages { get; set; }
+        private ObservableCollection<uploadIMG> uploadImages { get; set; }
         private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
         ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         private long userId;

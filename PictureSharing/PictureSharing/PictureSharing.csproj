@@ -92,29 +92,29 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Service References\ServiceReference1\PictureSharing.ServiceReference1.Foto.datasource">
+    <None Include="Service References\WebServiceReference\PictureSharing.WebServiceReference.Photo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\PictureSharing.ServiceReference1.User.datasource">
+    <None Include="Service References\WebServiceReference\PictureSharing.WebServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\WebServiceReference\ThreadingWebService.disco" />
+    <None Include="Service References\WebServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReference1\Service1.disco" />
+    <None Include="Service References\WebServiceReference\configuration.svcinfo" />
+    <None Include="Service References\WebServiceReference\configuration91.svcinfo" />
     <None Include="project.json" />
     <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
-    <None Include="Service References\ServiceReference1\Service1.wsdl" />
-    <None Include="Service References\ServiceReference1\Service1.xsd">
+    <None Include="Service References\WebServiceReference\ThreadingWebService.wsdl" />
+    <None Include="Service References\WebServiceReference\ThreadingWebService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Service11.xsd">
+    <None Include="Service References\WebServiceReference\ThreadingWebService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\Service12.xsd">
+    <None Include="Service References\WebServiceReference\ThreadingWebService2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -122,9 +122,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Models\Foto.cs" />
-    <Compile Include="FotoPage.xaml.cs">
-      <DependentUpon>FotoPage.xaml</DependentUpon>
+    <Compile Include="Converter\ByteArrayToImageConverter.cs" />
+    <Compile Include="Models\LocalPhoto.cs" />
+    <Compile Include="PhotoFullScreenPage.xaml.cs">
+      <DependentUpon>PhotoFullScreenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LogInPage.xaml.cs">
       <DependentUpon>LogInPage.xaml</DependentUpon>
@@ -136,7 +137,7 @@
     <Compile Include="RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\WebServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -171,7 +172,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="FotoPage.xaml">
+    <Page Include="PhotoFullScreenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,7 +201,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\WebServiceReference\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -1,4 +1,4 @@
-﻿using PictureSharing.ServiceReference1;
+﻿using PictureSharing.WebServiceReference;
 using System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -15,7 +15,7 @@ namespace PictureSharing
 		/// <summary>
 		/// Creates Service Client
 		/// </summary>
-		private Service1Client client = new Service1Client();
+		private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
 
 		/// <summary>
 		/// Initializes Page
@@ -36,10 +36,10 @@ namespace PictureSharing
 			{
 				bool check = false;
 
-				var gebruikers = await client.GetAllGebruikersAsync();
-				foreach (var user in gebruikers)
+				var users = await client.GetAllUsersAsync();
+				foreach (var user in users)
 				{
-					if (usernametxt.Text == user.GebruikerNaam)
+					if (usernametxt.Text == user.Username)
 					{
 						check = true;
 					}
@@ -47,11 +47,11 @@ namespace PictureSharing
 
 				if (!check)
 				{
-					ServiceReference1.User newUser = new ServiceReference1.User();
-					newUser.GebruikerNaam = usernametxt.Text;
-					newUser.GebruikersPW = passwordtxt.Password;
+					WebServiceReference.User newUser = new WebServiceReference.User();
+					newUser.Username = usernametxt.Text;
+					newUser.Password = passwordtxt.Password;
 
-					await client.AddGebruikerAsync(newUser);
+					await client.AddUserAsync(newUser);
 
 					var dialogCreated = new MessageDialog("User: " + usernametxt.Text + " successfully created");
 					await dialogCreated.ShowAsync();

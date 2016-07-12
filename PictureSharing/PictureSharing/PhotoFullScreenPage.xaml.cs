@@ -7,30 +7,31 @@ using Windows.UI.Xaml.Navigation;
 namespace PictureSharing
 {
     /// <summary>
-    /// The Foto page. It shows a single foto.
+    /// The PhotoFullScreenPage. It shows the single foto.
     /// </summary>
-    public sealed partial class FotoPage : Page
+    public sealed partial class PhotoFullScreenPage : Page
     {
-        private const string noImage = "De afbeelding kon niet worden geladen.";
-        public FotoPage()
+        private const string NoImage = "De afbeelding kon niet worden geladen.";
+        public PhotoFullScreenPage()
         {
             this.InitializeComponent();
         }
 
         /// <summary>
-        /// Gets the Foto object if there is navigated to this page from the mainpage.
+        /// Load the Photo in the frame
         /// </summary>
-        /// <param name="e"></param>
+        /// <param name="e">Needs to be a LocalPhoto obj</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter is Foto)
+            var photo = e.Parameter as LocalPhoto;
+            if (photo != null)
             {
-                this.DataContext = (Foto)e.Parameter;
+                DataContext = photo;
             }
             else
             {
                 // invalid argument and goes back to mainpage
-                ShowDialog(noImage);
+                ShowDialog(NoImage);
                 Frame.Navigate(typeof(MainPage));
             }
         }
@@ -46,9 +47,9 @@ namespace PictureSharing
         }
 
         /// <summary>
-        /// Method for back button. back to previouspage, which is mainpage.
+        /// Back to previouspage, which is mainpage.
         /// </summary>
-        /// <param name="sender">button objeccct</param>
+        /// <param name="sender">button object</param>
         /// <param name="e"></param>
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {

@@ -1,4 +1,4 @@
-﻿using PictureSharing.ServiceReference1;
+﻿using PictureSharing.WebServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +25,7 @@ namespace PictureSharing
     public sealed partial class UploadPage : Page
     {
         private ObservableCollection<uploadIMG> uploadImages { get; set; }
-        private Service1Client client = new Service1Client();
+        private ThreadingWebServiceClient client = new ThreadingWebServiceClient();
         ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
         private long userId;
 
@@ -150,7 +150,7 @@ namespace PictureSharing
             //Try to upload the image
             try
             {
-                image.uploadstatus = await client.UploadFotoAsync(image.filename, image.imageStream, userId);
+                image.uploadstatus = await client.UploadPhotoAsync(image.filename, image.imageStream, userId);
             }
             catch(Exception e)
             {

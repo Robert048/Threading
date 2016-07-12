@@ -1,6 +1,11 @@
-﻿using PictureSharing.ServiceReference1;
+﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
+using PictureSharing.WebServiceReference;
 
 namespace PictureSharing
 {
@@ -9,29 +14,35 @@ namespace PictureSharing
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private List<Foto> fotolijst { get; set; }
-        private Service1Client client = new Service1Client();
+        private List<LocalPhoto> PhotoList { get; set; }
+        private ThreadingWebServiceClient _client = new ThreadingWebServiceClient();
 
         public MainPage()
         {
             this.InitializeComponent();
-            getFotos();
+            GetPhotosFromService();
         }
 
         /// <summary>
         /// Method to get the foto's from service for the mainpage
         /// connects with service to get fotos, loops thru and adds fotos to the fotolist. after loop it adds the list to the itemsource of the itemcontrol
         /// </summary>
-        private async void getFotos()
+        private async void GetPhotosFromService()
         {
-            var fotoServicesList = await client.GetAllFotosAsync();
-            fotolijst = new List<Foto>();
-            foreach (var foto in fotoServicesList)
+            var photoServicesList = await _client.GetAllPhotosAsync();
+            PhotoList = new List<LocalPhoto>();
+            foreach (var servicePhoto in photoServicesList)
             {
-                fotolijst.Add(new Foto() { fotoID = foto.FotoID, fotoNaam = foto.FotoNaam, gebruikersID = foto.GebruikerID, path = foto.Path });
+                PhotoList.Add(new LocalPhoto()
+                {
+                    Id = servicePhoto.PhotoId,
+                    Name = servicePhoto.PhotoName,
+                    UserId = servicePhoto.UserId,
+                    Path = servicePhoto.Path,
+                    ImageData = servicePhoto.ImageData
+                });
             }
-            fotolijst.Add(new Foto() {fotoNaam = "naam"});
-            control.ItemsSource = fotolijst;
+            control.ItemsSource = PhotoList;
         }
 
         /// <summary>
@@ -51,7 +62,7 @@ namespace PictureSharing
         /// <param name="e"></param>
         private void btnRefresh_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            getFotos();
+            GetPhotosFromService();
         }
 
         /// <summary>
@@ -59,10 +70,10 @@ namespace PictureSharing
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void templateClick(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        private void TemplateClick(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
         {
-            Foto selectedFoto = (Foto)control.SelectedItem;
-            Frame.Navigate(typeof(FotoPage), selectedFoto);
+            LocalPhoto selectedLocalPhoto = (LocalPhoto)control.SelectedItem;
+            Frame.Navigate(typeof(PhotoFullScreenPage), selectedLocalPhoto);
         }
     }
 }

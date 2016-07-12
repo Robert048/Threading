@@ -1,13 +1,18 @@
 ﻿<Page
-    x:Class="PictureSharing.SettingsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:PictureSharing"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Converter="using:PictureSharing.Converter"
+    x:Class="PictureSharing.SettingsPage"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <Converter:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Page.Resources>
+
+    <Grid>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="VisualStateGroup">
                 <VisualState x:Name="minWidth_800">
@@ -40,7 +45,7 @@
         <Button x:Name="btnUpload" Content="upload" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="btnUpload_Click" Background="#FFF4571F" Foreground="White" Margin="0,0,0,5"/>
         <Button x:Name="btnBack" Content="back" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,5,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Click="btnBack_Click" Background="#FFF4571F" Foreground="White"/>
         <TextBlock Grid.Column="1" TextWrapping="Wrap" Text="pictures" TextAlignment="Center" Foreground="#FFF4581E" FontSize="26.667"/>
-        <GridView x:Name="control" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding fotolijst}" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,0,0,79">
+        <GridView x:Name="control" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" ItemsSource="{Binding PhotoList}" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,0,0,79">
             <GridView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="128" Width="128">
@@ -49,9 +54,10 @@
                             <RowDefinition Height="57*"/>
                             <RowDefinition Height="56*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock TextWrapping="Wrap" Text="{Binding fotoNaam}" FontSize="12" Height="100"/>
-                        <Image Source="{Binding path}" MaxWidth="125" MaxHeight="125" Grid.Row="1"/>
-                        <Button x:Name="button" Content="Verwijder" HorizontalAlignment="Stretch" Margin="34,0,41,21" Grid.Row="2" VerticalAlignment="Stretch" FontSize="8" Click="button_Click" Tag="{Binding fotoID}"/>
+                        <TextBlock TextWrapping="Wrap" Text="{Binding Name}" FontSize="12" Height="100"/>
+                        <Image Grid.Row="1"
+                               Source="{Binding ImageData, Converter={StaticResource ByteArrayToImageConverter}}" MaxWidth="125" MaxHeight="125"/>
+                        <Button x:Name="button" Content="Verwijder" HorizontalAlignment="Stretch" Margin="34,0,41,21" Grid.Row="2" VerticalAlignment="Stretch" FontSize="8" Click="button_Click" Tag="{Binding Id}"/>
                     </Grid>
                 </DataTemplate>
             </GridView.ItemTemplate>

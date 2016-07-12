@@ -25,7 +25,7 @@ namespace ThreadingServices
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Foto> Fotoes { get; set; }
+        public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -24,19 +24,17 @@ namespace PictureSharing.Converter
                 return null;
             }
 
+            // use a in-memory stream and write the bytes to the stream with a datawriter
             using (InMemoryRandomAccessStream memoryStream = new InMemoryRandomAccessStream())
             {
-                // Writes the image byte array in an InMemoryRandomAccessStream
-                // that is needed to set the source of BitmapImage.
                 using (DataWriter writer = new DataWriter(memoryStream.GetOutputStreamAt(0)))
                 {
                     writer.WriteBytes((byte[])value);
-
-                    // The GetResults here forces to wait until the operation completes
-                    // (i.e., it is executed synchronously), so this call can block the UI.
+                    // Data value converter have to be sync, so wait for the result.
                     writer.StoreAsync().GetResults();
                 }
 
+                // set the datastream to the image
                 var image = new BitmapImage();
                 image.SetSource(memoryStream);
                 return image;
